@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a1020">
+  <title>Éter · Gestor de energía</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./energy.js"></script>
+  <script defer src="./sphere.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+<header class="mast"><div class="mast-inner">
+  <button id="actions-toggle" class="head-button" type="button" aria-haspopup="dialog" aria-controls="actions-drawer" aria-expanded="false" data-aria="actions"><i data-icon="menu"></i><span data-t="actions">Acciones rápidas</span></button>
+  <div class="brand"><span class="sigil" aria-hidden="true"><svg viewBox="0 0 36 40"><path d="m18 2 12 12-2 13-10 11L7 27 5 14Z M18 2l5 13-5 23-5-23Z M5 14l8 1 5-5 5 5 7-1 M7 27l6-12m10 0 5 12"/></svg></span><span>Éter</span></div>
+  <span class="brand-description" data-t="tag">Gestor de energía</span>
+  <button id="settings" class="head-button" type="button"><i data-icon="sliders"></i><span data-t="settings">Ajustes</span></button>
+</div></header>
+<main>
+  <div class="section-head first"><h1 data-t="reserve">Reserva de energía</h1>
+    <button id="total" class="total" type="button"><span class="micro" data-t="total">Energía total</span><strong id="total-value">100</strong><i data-icon="pencil"></i></button>
+  </div>
+  <section class="chamber" aria-labelledby="dial-label">
+    <div class="sky" aria-hidden="true"><canvas id="sky"></canvas></div>
+    <span class="corner nw" aria-hidden="true"></span><span class="corner ne" aria-hidden="true"></span>
+    <div class="instrument">
+      <div class="orbit-row">
+        <button id="minus" class="step" data-aria="subtractOne" type="button"><i data-icon="minus"></i></button>
+        <button id="orb" class="orb" type="button" aria-haspopup="dialog">
+          <canvas id="orb-canvas" aria-hidden="true"></canvas>
+          <span class="counter"><strong id="energy-value">72</strong><span id="dial-label" class="micro" data-t="current">Energía actual</span></span>
+        </button>
+        <button id="plus" class="step" data-aria="addOne" type="button"><i data-icon="plus"></i></button>
+      </div>
+      <button class="calc-hint" id="calc-hint" type="button"><i data-icon="calculator"></i><span data-t="tap">Toca la esfera para calcular</span></button>
+    </div>
+    <div class="chamber-foot">
+      <div class="level"><div class="gauge" aria-hidden="true"><span></span></div><span id="level-value">72 %</span><span data-t="available">disponible</span></div>
+      <button id="reset" type="button" class="reset"><i data-icon="reset"></i><span data-t="reset">Reiniciar</span></button>
+    </div>
+  </section>
+  <footer><span><i data-icon="device"></i><span id="save-info" data-t="local">Guardado en este dispositivo</span></span><span aria-hidden="true" class="footer-star">✧</span></footer>
+</main>
+<dialog id="actions-drawer" aria-labelledby="actions-title">
+  <div class="drawer-header">
+    <h2 id="actions-title" data-t="actions">Acciones rápidas</h2>
+    <button id="drawer-close" class="icon-button" type="button" data-aria="close" autofocus><i data-icon="close"></i></button>
+  </div>
+  <div id="actions-list"></div>
+  <button id="add" class="add" type="button"><i data-icon="plus"></i><span data-t="newAction">Nueva acción</span></button>
+</dialog>
+<dialog id="dialog" aria-labelledby="dialog-title">
+  <div class="dialog-header"><h2 id="dialog-title"></h2><button class="icon-button" type="button" id="close" data-aria="close"><i data-icon="close"></i></button></div>
+  <div id="dialog-content"></div>
+</dialog>
+<div id="notice" role="status" aria-live="polite"></div>
+</body>
+</html>
