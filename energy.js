@@ -9,7 +9,7 @@ const Energy = (() => {
     orange:[24,91,52,'#ffbd88'], gold:[41,74,46,'#e8c878'], silver:[210,22,66,'#ccdae5']
   };
   function defaults(){
-    return {version:1,total:100,current:72,lang:'es',color:'blue',energyName:'Energía',actions:[
+    return {version:1,total:100,current:72,lang:'es',color:'blue',energyName:'Energía',history:[],actions:[
       {id:'start-1',preset:'maintenance',name:'',delta:-6,target:'total'},
       {id:'start-2',preset:'recovery',name:'',delta:8,target:'current'}
     ]};
@@ -33,6 +33,20 @@ const Energy = (() => {
         seen.add(a.id);return true;
       }).map(a=>({...a,name:a.name.trim().slice(0,80)}));
     }
+    // Keep only the intact undo chain ending at the saved energy values.
+    if(Array.isArray(raw.history)){
+      const values={current:state.current,total:state.total},valid=[];
+      for(let i=raw.history.length-1;i>=0;i--){
+        const entry=raw.history[i];
+        if(!entry||!['current','total'].includes(entry.target)||!whole(entry.before)||!whole(entry.after)
+          ||entry.before===entry.after||entry.after!==values[entry.target]
+          ||!['step','calculator','total','action'].includes(entry.kind)
+          ||typeof entry.label!=='string'||!Number.isSafeInteger(entry.at)||entry.at<0||entry.at>8640000000000000)break;
+        valid.unshift({...entry,label:entry.label.slice(0,100)});
+        values[entry.target]=entry.before;
+      }
+      state.history=valid;
+    }
     return state;
   }
   function evaluate(expression){
@@ -46,6 +60,21 @@ const Energy = (() => {
     // Lowering capacity can create an overfull reserve. Spending uses its real value.
     return Math.max(0,Math.min(Math.max(state.current,state.total),state.current+delta));
   }
-  return {limit,key,palettes,defaults,restore,evaluate,result,whole,normalizeName};
+  function record(state,next,target='current',kind='step',label=''){
+    const before=state[target];
+    if(before===next)return false;
+    state.history.push({target,before,after:next,kind,label,at:Date.now()});
+    state[target]=next;
+    return true;
+  }
+  function undo(state){
+    const entry=state.history.at(-1);
+    if(!entry||state[entry.target]!==entry.after)return null;
+    state[entry.target]=entry.before;
+    state.history.pop();
+    return entry;
+  }
+  function reset(state){state.current=state.total;state.history=[];}
+  return {record,undo,reset,limit,key,palettes,defaults,restore,evaluate,result,whole,normalizeName};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Energy;

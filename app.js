@@ -1,15 +1,18 @@
 'use strict';
 const messages = {
  es:{
-  defaultEnergy:'Energía', energyName:'Nombre de la energía', energyNameHelp:'Se usa en la reserva, el total y las acciones. Vacío restaura Energía.', tag:'Gestor de {energyLower}', settings:'Ajustes', reserve:'Reserva de {energyLower}', total:'{energy} total', current:'{energy} actual', addOne:'Añadir un punto', subtractOne:'Restar un punto',
-  tap:'Toca la esfera para ajustar', available:'disponible', reset:'Reiniciar', actions:'Acciones rápidas', add:'Añadir', local:'Guardado en este dispositivo', offlineSave:'El navegador no permite guardar los cambios', close:'Cerrar', apply:'Aplicar', edit:'Editar', cancel:'Cancelar', ok:'Aceptar', save:'Guardar', remove:'Eliminar', done:'Listo', maintenance:'Mantenimiento', recovery:'Recuperación', empty:'Añade tu primera acción rápida.', calculator:'Ajustar {energyLower}', result:'{energy} resultante', clear:'Limpiar', backspace:'Borrar última cifra', expr:'Operación', example:'Ejemplo: −15 + 8', maxTitle:'Cambiar {energyLower} total', maxHelp:'La reserva actual conserva su valor.', resetTitle:'Reiniciar {energyLower}', resetHelp:'Recuperar la reserva hasta su valor total.', change:'{energy} actual', newAction:'Nueva acción', editAction:'Editar acción', name:'Descripción', value:'Variación', target:'Aplicar a', spend:'Gastar', gain:'Añadir', magnitude:'Puntos', addName:'Ej. Mantenimiento', language:'Idioma', color:'Color de {energyLower}', blue:'Azul', red:'Rojo', yellow:'Amarillo', green:'Verde', purple:'Lila', black:'Negro', white:'Blanco', gray:'Gris', pink:'Rosa', orange:'Naranja', gold:'Dorado', silver:'Plateado', edited:'Cambios guardados', invalidExpr:'Completa la operación', calcOpen:'Abrir ajuste', onTotal:'Sobre el total', deleted:'Acción eliminada', deleteAction:'Eliminar acción', deletePrompt:'¿Eliminar esta acción rápida?', reachedMax:'Reserva llena', reachedZero:'Reserva vacía', over:'Por encima del total', zeroCapacity:'Sin capacidad', invalid:'Introduce un número entero válido.', unchanged:'Sin cambios', resetDone:'Reserva reiniciada', applied:'aplicada', activeColor:'Color seleccionado'
+  history:'Historial', undo:'Deshacer último cambio', historyEmpty:'Aún no hay cambios.', historyHelp:'Solo puedes deshacer el cambio más reciente.', stepChange:'Ajuste de un punto', totalChange:'Cambio del total', undone:'Cambio deshecho', reorder:'Reordenar', reorderHelp:'Arrastra el asa o usa las flechas arriba y abajo.', reordered:'Orden guardado', position:'Posición', defaultEnergy:'Energía', energyName:'Nombre de la energía', energyNameHelp:'Se usa en la reserva, el total y las acciones. Vacío restaura Energía.', tag:'Gestor de {energyLower}', settings:'Ajustes', reserve:'Reserva de {energyLower}', total:'{energy} total', current:'{energy} actual', addOne:'Añadir un punto', subtractOne:'Restar un punto',
+  tap:'Toca la esfera para ajustar', available:'disponible', reset:'Reiniciar', actions:'Acciones rápidas', add:'Añadir', local:'Guardado en este dispositivo', offlineSave:'El navegador no permite guardar los cambios', close:'Cerrar', apply:'Aplicar', edit:'Editar', cancel:'Cancelar', ok:'Aceptar', save:'Guardar', remove:'Eliminar', done:'Listo', maintenance:'Mantenimiento', recovery:'Recuperación', empty:'Añade tu primera acción rápida.', calculator:'Ajustar {energyLower}', result:'{energy} resultante', clear:'Limpiar', backspace:'Borrar última cifra', expr:'Operación', example:'Ejemplo: −15 + 8', maxTitle:'Cambiar {energyLower} total', maxHelp:'La reserva actual conserva su valor.', resetTitle:'Reiniciar {energyLower}', resetHelp:'Recuperar la reserva hasta su valor total y borrar el historial.', change:'{energy} actual', newAction:'Nueva acción', editAction:'Editar acción', name:'Descripción', value:'Variación', target:'Aplicar a', spend:'Gastar', gain:'Añadir', magnitude:'Puntos', addName:'Ej. Mantenimiento', language:'Idioma', color:'Color de {energyLower}', blue:'Azul', red:'Rojo', yellow:'Amarillo', green:'Verde', purple:'Lila', black:'Negro', white:'Blanco', gray:'Gris', pink:'Rosa', orange:'Naranja', gold:'Dorado', silver:'Plateado', edited:'Cambios guardados', invalidExpr:'Completa la operación', calcOpen:'Abrir ajuste', onTotal:'Sobre el total', deleted:'Acción eliminada', deleteAction:'Eliminar acción', deletePrompt:'¿Eliminar esta acción rápida?', reachedMax:'Reserva llena', reachedZero:'Reserva vacía', over:'Por encima del total', zeroCapacity:'Sin capacidad', invalid:'Introduce un número entero válido.', unchanged:'Sin cambios', resetDone:'Reserva reiniciada', applied:'aplicada', activeColor:'Color seleccionado'
  },
  en:{
-  defaultEnergy:'Energy', energyName:'Energy name', energyNameHelp:'Used for the reserve, total and actions. Leave blank to restore Energy.', tag:'{energy} tracker', settings:'Settings', reserve:'{energy} reserve', total:'Total {energyLower}', current:'Current {energyLower}', addOne:'Add one point', subtractOne:'Subtract one point',
-  tap:'Tap the sphere to adjust', available:'available', reset:'Reset', actions:'Quick actions', add:'Add', local:'Saved on this device', offlineSave:'This browser cannot save changes', close:'Close', apply:'Apply', edit:'Edit', cancel:'Cancel', ok:'Confirm', save:'Save', remove:'Delete', done:'Done', maintenance:'Upkeep', recovery:'Recovery', empty:'Add your first quick action.', calculator:'Adjust {energyLower}', result:'Resulting {energyLower}', clear:'Clear', backspace:'Delete last digit', expr:'Operation', example:'Example: −15 + 8', maxTitle:'Change total {energyLower}', maxHelp:'The current reserve keeps its value.', resetTitle:'Reset {energyLower}', resetHelp:'Refill the reserve to its total capacity.', change:'Current {energyLower}', newAction:'New action', editAction:'Edit action', name:'Description', value:'Adjustment', target:'Apply to', spend:'Spend', gain:'Add', magnitude:'Points', addName:'E.g. Upkeep', language:'Language', color:'{energy} color', blue:'Blue', red:'Red', yellow:'Yellow', green:'Green', purple:'Lilac', black:'Black', white:'White', gray:'Gray', pink:'Pink', orange:'Orange', gold:'Gold', silver:'Silver', edited:'Changes saved', invalidExpr:'Complete the operation', calcOpen:'Open adjustment', onTotal:'Changes total', deleted:'Action deleted', deleteAction:'Delete action', deletePrompt:'Delete this quick action?', reachedMax:'Reserve full', reachedZero:'Reserve empty', over:'Above capacity', zeroCapacity:'Zero capacity', invalid:'Enter a valid whole number.', unchanged:'No change', resetDone:'Reserve reset', applied:'applied', activeColor:'Selected color'
+  history:'History', undo:'Undo latest change', historyEmpty:'No changes yet.', historyHelp:'Only the latest change can be undone.', stepChange:'One-point adjustment', totalChange:'Total changed', undone:'Change undone', reorder:'Reorder', reorderHelp:'Drag the handle or use the up and down arrow keys.', reordered:'Order saved', position:'Position', defaultEnergy:'Energy', energyName:'Energy name', energyNameHelp:'Used for the reserve, total and actions. Leave blank to restore Energy.', tag:'{energy} tracker', settings:'Settings', reserve:'{energy} reserve', total:'Total {energyLower}', current:'Current {energyLower}', addOne:'Add one point', subtractOne:'Subtract one point',
+  tap:'Tap the sphere to adjust', available:'available', reset:'Reset', actions:'Quick actions', add:'Add', local:'Saved on this device', offlineSave:'This browser cannot save changes', close:'Close', apply:'Apply', edit:'Edit', cancel:'Cancel', ok:'Confirm', save:'Save', remove:'Delete', done:'Done', maintenance:'Upkeep', recovery:'Recovery', empty:'Add your first quick action.', calculator:'Adjust {energyLower}', result:'Resulting {energyLower}', clear:'Clear', backspace:'Delete last digit', expr:'Operation', example:'Example: −15 + 8', maxTitle:'Change total {energyLower}', maxHelp:'The current reserve keeps its value.', resetTitle:'Reset {energyLower}', resetHelp:'Refill the reserve to its total capacity and clear history.', change:'Current {energyLower}', newAction:'New action', editAction:'Edit action', name:'Description', value:'Adjustment', target:'Apply to', spend:'Spend', gain:'Add', magnitude:'Points', addName:'E.g. Upkeep', language:'Language', color:'{energy} color', blue:'Blue', red:'Red', yellow:'Yellow', green:'Green', purple:'Lilac', black:'Black', white:'White', gray:'Gray', pink:'Pink', orange:'Orange', gold:'Gold', silver:'Silver', edited:'Changes saved', invalidExpr:'Complete the operation', calcOpen:'Open adjustment', onTotal:'Changes total', deleted:'Action deleted', deleteAction:'Delete action', deletePrompt:'Delete this quick action?', reachedMax:'Reserve full', reachedZero:'Reserve empty', over:'Above capacity', zeroCapacity:'Zero capacity', invalid:'Enter a valid whole number.', unchanged:'No change', resetDone:'Reserve reset', applied:'applied', activeColor:'Selected color'
  }
 };
 const icons = {
+ history:'<path d="M3 10a9 9 0 1 1 1.5 7M3 4v6h6M12 7v5l3 2"/>',
+ grip:'<circle cx="9" cy="5" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="19" r="1"/>',
+ undo:'<path d="M4 9a8 8 0 1 1 1 9M4 3v6h6"/>',
  menu:'<path d="M3 6h18M3 12h14M3 18h18"/>',
  sliders:'<path d="M3 7h8m5 0h5M3 17h3m5 0h10"/><circle cx="13.5" cy="7" r="2.5"/><circle cx="8.5" cy="17" r="2.5"/>',
  pencil:'<path d="m14.5 5.5 4 4M4 20l4.5-1 12-12a2.8 2.8 0 0 0-4-4l-12 12Z"/>',
@@ -38,7 +41,7 @@ const format=n=>new Intl.NumberFormat(state.lang==='es'?'es-ES':'en-US').format(
 const signed=n=>(n>0?'+':'−')+format(Math.abs(n));
 const displayName=a=>a.name||t(a.preset);
 const view=new ReservoirView($('#orb-canvas'),$('#sky'));
-let noticeTimer,mode='',expression='';
+let noticeTimer,mode='',expression='',actionDrag=null;
 function notify(message){
   clearTimeout(noticeTimer);$('#notice').textContent=message;
   noticeTimer=setTimeout(()=>$('#notice').textContent='',2500);
@@ -79,6 +82,7 @@ function render(){
   renderActions();
 }
 function renderActions(){
+  if(actionDrag){endActionDrag(false);return;}
   const list=$('#actions-list'),oldScroll=list.scrollTop;
   const focused=document.activeElement?.closest('.action-row');
   const oldFocus=focused && [focused.dataset.id,document.activeElement.className];
@@ -88,11 +92,12 @@ function renderActions(){
   }
   for(const a of state.actions){
     const row=document.createElement('div');row.className='action-row'+(a.delta>0?' gain':'');row.dataset.id=a.id;
-    row.innerHTML='<button class="run-action" type="button"><span class="action-icon"><i></i></span><span class="row-name"></span><span class="amount"></span></button><button class="edit-action icon-button" type="button"><i data-icon="dots"></i></button>';
+    row.innerHTML='<button type="button" class="drag-handle"><i data-icon="grip"></i></button><button class="run-action" type="button"><span class="action-icon"><i></i></span><span class="row-name"></span><span class="amount"></span></button><button class="edit-action icon-button" type="button"><i data-icon="dots"></i></button>';
     row.querySelector('.action-icon i').dataset.icon=a.delta>0?'spark':(a.preset==='maintenance'?'shield':'drain');
     row.querySelector('.row-name').textContent=displayName(a);
     const target=document.createElement('small');target.className='target-note';target.textContent=t(a.target);row.querySelector('.row-name').append(target);
     row.querySelector('.amount').textContent=signed(a.delta);
+    row.querySelector('.drag-handle').setAttribute('aria-label',t('reorder')+' '+displayName(a)+'. '+t('reorderHelp'));
     row.querySelector('.run-action').setAttribute('aria-label',displayName(a)+' '+signed(a.delta)+' · '+t(a.target));
     row.querySelector('.edit-action').setAttribute('aria-label',t('edit')+' '+displayName(a));
     renderIcons(row);list.append(row);
@@ -100,9 +105,9 @@ function renderActions(){
   }
   list.scrollTop=oldScroll;
 }
-function change(delta,target='current',actionName=''){
+function change(delta,target='current',actionName='',kind='step',label=''){
   const old=state[target],next=Energy.result(state,delta,target);
-  state[target]=next;save();render();
+  Energy.record(state,next,target,kind,label||actionName);save();render();
   notify((actionName||t(target))+' · '+(old===next?t('unchanged'):format(old)+' → '+format(next)));
 }
 function openDialog(type,title,body){
@@ -146,7 +151,7 @@ function updateCalc(){
 }
 function applyCalc(){
   const delta=Energy.evaluate(expression);if(delta===null)return;
-  finish();change(delta);
+  finish();change(delta,'current','','calculator',expression);
 }
 document.addEventListener('keydown',e=>{
   if(!dialog.open||mode!=='calc'||e.altKey||e.metaKey||e.ctrlKey)return;
@@ -162,12 +167,38 @@ function showTotal(){
   $('#capacity').value=state.total;
   content.querySelector('form').onsubmit=e=>{
     e.preventDefault();const n=$('#capacity').valueAsNumber;if(!Energy.whole(n))return;
-    state.total=n;save();finish();render();notify(t('total')+' · '+format(n));
+    Energy.record(state,n,'total','total');save();finish();render();notify(t('total')+' · '+format(n));
   };
 }
 function showReset(){
   openDialog('reset','resetTitle','<p class="help">'+th('resetHelp')+'</p><div class="preview-meta">'+th('change')+'<strong>'+format(state.current)+' → '+format(state.total)+'</strong></div>'+buttons('reset'));
-  $('#submit').onclick=()=>{state.current=state.total;save();finish();render();notify(t('resetDone')+' · '+format(state.current));};
+  $('#submit').onclick=()=>{Energy.reset(state);save();finish();render();notify(t('resetDone')+' · '+format(state.current));};
+}
+function showHistory(){
+  openDialog('history','history','<p class="help">'+th('historyHelp')+'</p><ol id="history-list"></ol>');
+  const list=$('#history-list');
+  if(!state.history.length){
+    const empty=document.createElement('li');empty.className='empty';empty.textContent=t('historyEmpty');list.append(empty);return;
+  }
+  [...state.history].reverse().forEach((entry,index)=>{
+    const row=document.createElement('li');row.className='history-row';
+    const details=document.createElement('div');
+    const title=document.createElement('strong');
+    title.textContent=entry.kind==='action'?entry.label:entry.kind==='calculator'?t('calculator')+' · '+entry.label.replaceAll('-','−'):t(entry.kind==='total'?'totalChange':'stepChange');
+    const values=document.createElement('span');values.textContent=t(entry.target)+' · '+format(entry.before)+' → '+format(entry.after)+' ('+signed(entry.after-entry.before)+')';
+    const time=document.createElement('time');time.dateTime=new Date(entry.at).toISOString();time.textContent=new Intl.DateTimeFormat(state.lang,{dateStyle:'short',timeStyle:'short'}).format(entry.at);
+    details.append(title,values,time);row.append(details);
+    if(index===0){
+      const undo=document.createElement('button');undo.type='button';undo.className='icon-button undo-change';undo.setAttribute('aria-label',t('undo'));undo.title=t('undo');undo.innerHTML=icon('undo');
+      undo.onclick=()=>{
+        if(state.history.at(-1)!==entry||!Energy.undo(state))return;
+        save();render();showHistory();notify(t('undone'));
+        content.querySelector('.undo-change')?.focus({preventScroll:true});
+      };
+      row.append(undo);
+    }
+    list.append(row);
+  });
 }
 function showAction(a){
   let sign=a&&a.delta>0?1:-1;
@@ -222,14 +253,78 @@ function showSettings(focusSelector){
 }
 $('#minus').onclick=()=>change(-1);$('#plus').onclick=()=>change(1);
 $('#orb').onclick=$('#calc-hint').onclick=showCalculator;
+$('#history').onclick=showHistory;
 $('#total').onclick=showTotal;$('#reset').onclick=showReset;
 $('#settings').onclick=()=>showSettings();$('#add').onclick=()=>showAction(null);
 $('#actions-list').onclick=e=>{
   const row=e.target.closest('.action-row');if(!row)return;
   const a=state.actions.find(item=>item.id===row.dataset.id);if(!a)return;
-  if(e.target.closest('.run-action'))change(a.delta,a.target,displayName(a));
+  if(e.target.closest('.run-action'))change(a.delta,a.target,displayName(a),'action');
   else if(e.target.closest('.edit-action'))showAction(a);
 };
+// The dedicated handle leaves normal row taps and list scrolling untouched.
+const actionList=$('#actions-list');
+actionList.addEventListener('pointerdown',e=>{
+  const handle=e.target.closest('.drag-handle');
+  if(!handle||e.button!==0||!e.isPrimary||actionDrag)return;
+  const row=handle.closest('.action-row'),rect=row.getBoundingClientRect();
+  handle.setPointerCapture(e.pointerId);
+  actionDrag={handle,row,pointer:e.pointerId,startX:e.clientX,startY:e.clientY,y:e.clientY,offset:e.clientY-rect.top,moved:false,ghost:null,frame:0};
+});
+document.addEventListener('pointermove',e=>{
+  const drag=actionDrag;if(!drag||e.pointerId!==drag.pointer)return;
+  drag.y=e.clientY;
+  if(!drag.moved&&Math.hypot(e.clientX-drag.startX,e.clientY-drag.startY)<6)return;
+  e.preventDefault();
+  if(!drag.moved){
+    drag.moved=true;
+    const rect=drag.row.getBoundingClientRect();
+    drag.ghost=drag.row.cloneNode(true);drag.ghost.classList.add('drag-ghost');drag.ghost.setAttribute('aria-hidden','true');drag.ghost.inert=true;
+    Object.assign(drag.ghost.style,{width:rect.width+'px',left:rect.left+'px'});document.body.append(drag.ghost);drag.row.classList.add('dragging');
+    const tick=()=>{
+      if(actionDrag!==drag)return;
+      positionActionDrag(drag);
+      drag.frame=requestAnimationFrame(tick);
+    };
+    tick();
+  }
+  positionActionDrag(drag);
+});
+function positionActionDrag(drag){
+      drag.ghost.style.top=(drag.y-drag.offset)+'px';
+      const bounds=actionList.getBoundingClientRect();
+      const speed=drag.y<bounds.top+36?-8:drag.y>bounds.bottom-36?8:0;
+      actionList.scrollTop+=speed;
+      const next=[...actionList.children].find(row=>row!==drag.row&&drag.y<row.getBoundingClientRect().top+row.getBoundingClientRect().height/2);
+      if((next||null)!==drag.row.nextElementSibling)actionList.insertBefore(drag.row,next||null);
+}
+function endActionDrag(commit){
+  const drag=actionDrag;if(!drag)return;actionDrag=null;
+  cancelAnimationFrame(drag.frame);drag.ghost?.remove();drag.row.classList.remove('dragging');
+  if(drag.handle.hasPointerCapture(drag.pointer))drag.handle.releasePointerCapture(drag.pointer);
+  if(commit&&drag.moved){
+    const byId=new Map(state.actions.map(action=>[action.id,action]));
+    state.actions=[...actionList.children].map(row=>byId.get(row.dataset.id)).filter(Boolean);
+    save();notify(t('reordered'));
+  }
+  renderActions();
+  [...actionList.querySelectorAll('.action-row')].find(row=>row.dataset.id===drag.row.dataset.id)?.querySelector('.drag-handle').focus({preventScroll:true});
+}
+document.addEventListener('pointerup',e=>{if(e.pointerId===actionDrag?.pointer){actionDrag.y=e.clientY;if(actionDrag.moved)positionActionDrag(actionDrag);endActionDrag(true);}});
+document.addEventListener('pointercancel',()=>endActionDrag(false));
+window.addEventListener('blur',()=>endActionDrag(false));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&actionDrag){e.preventDefault();endActionDrag(false);}});
+actionList.addEventListener('keydown',e=>{
+  const handle=e.target.closest('.drag-handle');if(!handle)return;
+  if(e.key==='Escape'&&actionDrag){e.preventDefault();endActionDrag(false);return;}
+  if(!['ArrowUp','ArrowDown','Home','End'].includes(e.key))return;
+  e.preventDefault();
+  const id=handle.closest('.action-row').dataset.id,index=state.actions.findIndex(action=>action.id===id);
+  const next=e.key==='Home'?0:e.key==='End'?state.actions.length-1:Math.max(0,Math.min(state.actions.length-1,index+(e.key==='ArrowUp'?-1:1)));
+  if(next===index)return;
+  const [action]=state.actions.splice(index,1);state.actions.splice(next,0,action);save();renderActions();
+  notify(t('reordered')+' · '+t('position')+' '+(next+1));
+});
 window.addEventListener('storage',e=>{
   if(e.storageArea!==localStorage||e.key!==Energy.key)return;
   try{state=Energy.restore(JSON.parse(e.newValue));if(dialog.open)finish();render();}

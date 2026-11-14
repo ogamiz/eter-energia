@@ -27,3 +27,8 @@ Guía de GitHub: https://docs.github.com/es/pages/getting-started-with-github-pa
 ## Probar antes de publicar
 
 Puedes abrir `index.html` en el ordenador. Para probar también el modo sin conexión, sirve la carpeta por HTTP local o HTTPS. Por ejemplo, ejecuta `python3 -m http.server 8080` dentro de ella y abre http://localhost:8080/.
+
+## Historial y orden de acciones
+
+- **Historial**, junto a **Reiniciar**, muestra los cambios del más reciente al más antiguo. Solo la primera fila permite deshacer. Se restauran los valores exactos anteriores, incluidos los cambios del total. El historial se guarda en este navegador. Reiniciar iguala la reserva al total y borra el historial tras confirmar.
+- Arrastra el asa de puntos de una acción para reordenarla, también en pantallas táctiles. La lista se desplaza al acercar el asa a sus bordes. Con teclado, enfoca el asa y usa las flechas arriba/abajo o Inicio/Fin. El orden se conserva al recargar.

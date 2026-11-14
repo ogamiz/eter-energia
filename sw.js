@@ -1,6 +1,6 @@
 /* Version the shell per project path. GitHub Pages projects may share an origin. */
 const prefix='eter-shell:'+self.registration.scope+':';
-const cacheName=prefix+'1.2.2';
+const cacheName=prefix+'1.3.3';
 const files=['./index.html','./styles.css','./app.js','./energy.js','./sphere.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
 const urls=new Set(files.map(file=>new URL(file,self.registration.scope).href));
 self.addEventListener('install',event=>{
