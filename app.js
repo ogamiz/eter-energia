@@ -1,15 +1,16 @@
 'use strict';
 const messages = {
  es:{
-  reserves:'Reservas de energía', addReserve:'Añadir reserva', newReserve:'Nueva reserva', createReserve:'Crear reserva', reserveNameExample:'Ej. Maná, Ki, Vigor', reserveColor:'Color de la reserva', languageHelp:'El idioma se aplica a todas las reservas.', history:'Historial', undo:'Deshacer último cambio', historyEmpty:'Aún no hay cambios.', historyHelp:'Solo puedes deshacer el cambio más reciente.', stepChange:'Ajuste de un punto', totalChange:'Cambio del total', undone:'Cambio deshecho', reorder:'Reordenar', reorderHelp:'Arrastra el asa o usa las flechas arriba y abajo.', reordered:'Orden guardado', position:'Posición', defaultEnergy:'Energía', energyName:'Nombre de la energía', energyNameHelp:'Se usa en la reserva, el total y las acciones. Vacío restaura Energía.', tag:'Gestor de {energyLower}', settings:'Ajustes', reserve:'Reserva de {energyLower}', total:'{energy} total', current:'{energy} actual', addOne:'Añadir un punto', subtractOne:'Restar un punto',
+  deleteReserve:'Eliminar reserva', deleteReservePrompt:'Se eliminarán los valores, las acciones y el historial de esta reserva.', reserveDeleted:'Reserva eliminada', noReserves:'No hay reservas', emptyReservesHelp:'Crea una reserva para empezar.', tabHelp:'Arrastra el asa para reordenar. Con teclado, usa Alt y las flechas izquierda o derecha.', reserves:'Reservas de energía', addReserve:'Añadir reserva', newReserve:'Nueva reserva', createReserve:'Crear reserva', reserveNameExample:'Ej. Maná, Ki, Vigor', reserveColor:'Color de la reserva', languageHelp:'El idioma se aplica a todas las reservas.', history:'Historial', undo:'Deshacer último cambio', historyEmpty:'Aún no hay cambios.', historyHelp:'Solo puedes deshacer el cambio más reciente.', stepChange:'Ajuste de un punto', totalChange:'Cambio del total', undone:'Cambio deshecho', reorder:'Reordenar', reorderHelp:'Arrastra el asa o usa las flechas arriba y abajo.', reordered:'Orden guardado', position:'Posición', defaultEnergy:'Energía', energyName:'Nombre de la energía', energyNameHelp:'Se usa en la reserva, el total y las acciones. Vacío restaura Energía.', tag:'Gestor de {energyLower}', settings:'Ajustes', reserve:'Reserva de {energyLower}', total:'{energy} total', current:'{energy} actual', addOne:'Añadir un punto', subtractOne:'Restar un punto',
   tap:'Toca la esfera para ajustar', available:'disponible', reset:'Reiniciar', actions:'Acciones rápidas', add:'Añadir', local:'Guardado en este dispositivo', offlineSave:'El navegador no permite guardar los cambios', close:'Cerrar', apply:'Aplicar', edit:'Editar', cancel:'Cancelar', ok:'Aceptar', save:'Guardar', remove:'Eliminar', done:'Listo', maintenance:'Mantenimiento', recovery:'Recuperación', empty:'Añade tu primera acción rápida.', calculator:'Ajustar {energyLower}', result:'{energy} resultante', clear:'Limpiar', backspace:'Borrar última cifra', expr:'Operación', example:'Ejemplo: −15 + 8', maxTitle:'Cambiar {energyLower} total', maxHelp:'La reserva actual conserva su valor.', resetTitle:'Reiniciar {energyLower}', resetHelp:'Recuperar la reserva hasta su valor total y borrar el historial.', change:'{energy} actual', newAction:'Nueva acción', editAction:'Editar acción', name:'Descripción', value:'Variación', target:'Aplicar a', spend:'Gastar', gain:'Añadir', magnitude:'Puntos', addName:'Ej. Mantenimiento', language:'Idioma', color:'Color de {energyLower}', blue:'Azul', red:'Rojo', yellow:'Amarillo', green:'Verde', purple:'Lila', black:'Negro', white:'Blanco', gray:'Gris', pink:'Rosa', orange:'Naranja', gold:'Dorado', silver:'Plateado', edited:'Cambios guardados', invalidExpr:'Completa la operación', calcOpen:'Abrir ajuste', onTotal:'Sobre el total', deleted:'Acción eliminada', deleteAction:'Eliminar acción', deletePrompt:'¿Eliminar esta acción rápida?', reachedMax:'Reserva llena', reachedZero:'Reserva vacía', over:'Por encima del total', zeroCapacity:'Sin capacidad', invalid:'Introduce un número entero válido.', unchanged:'Sin cambios', resetDone:'Reserva reiniciada', applied:'aplicada', activeColor:'Color seleccionado'
  },
  en:{
-  reserves:'Energy reserves', addReserve:'Add reserve', newReserve:'New reserve', createReserve:'Create reserve', reserveNameExample:'E.g. Mana, Ki, Stamina', reserveColor:'Reserve color', languageHelp:'The language applies to all reserves.', history:'History', undo:'Undo latest change', historyEmpty:'No changes yet.', historyHelp:'Only the latest change can be undone.', stepChange:'One-point adjustment', totalChange:'Total changed', undone:'Change undone', reorder:'Reorder', reorderHelp:'Drag the handle or use the up and down arrow keys.', reordered:'Order saved', position:'Position', defaultEnergy:'Energy', energyName:'Energy name', energyNameHelp:'Used for the reserve, total and actions. Leave blank to restore Energy.', tag:'{energy} tracker', settings:'Settings', reserve:'{energy} reserve', total:'Total {energyLower}', current:'Current {energyLower}', addOne:'Add one point', subtractOne:'Subtract one point',
+  deleteReserve:'Delete reserve', deleteReservePrompt:'This will delete the values, actions and history of this reserve.', reserveDeleted:'Reserve deleted', noReserves:'No reserves', emptyReservesHelp:'Create a reserve to get started.', tabHelp:'Drag the handle to reorder. On a keyboard, use Alt and the left or right arrow keys.', reserves:'Energy reserves', addReserve:'Add reserve', newReserve:'New reserve', createReserve:'Create reserve', reserveNameExample:'E.g. Mana, Ki, Stamina', reserveColor:'Reserve color', languageHelp:'The language applies to all reserves.', history:'History', undo:'Undo latest change', historyEmpty:'No changes yet.', historyHelp:'Only the latest change can be undone.', stepChange:'One-point adjustment', totalChange:'Total changed', undone:'Change undone', reorder:'Reorder', reorderHelp:'Drag the handle or use the up and down arrow keys.', reordered:'Order saved', position:'Position', defaultEnergy:'Energy', energyName:'Energy name', energyNameHelp:'Used for the reserve, total and actions. Leave blank to restore Energy.', tag:'{energy} tracker', settings:'Settings', reserve:'{energy} reserve', total:'Total {energyLower}', current:'Current {energyLower}', addOne:'Add one point', subtractOne:'Subtract one point',
   tap:'Tap the sphere to adjust', available:'available', reset:'Reset', actions:'Quick actions', add:'Add', local:'Saved on this device', offlineSave:'This browser cannot save changes', close:'Close', apply:'Apply', edit:'Edit', cancel:'Cancel', ok:'Confirm', save:'Save', remove:'Delete', done:'Done', maintenance:'Upkeep', recovery:'Recovery', empty:'Add your first quick action.', calculator:'Adjust {energyLower}', result:'Resulting {energyLower}', clear:'Clear', backspace:'Delete last digit', expr:'Operation', example:'Example: −15 + 8', maxTitle:'Change total {energyLower}', maxHelp:'The current reserve keeps its value.', resetTitle:'Reset {energyLower}', resetHelp:'Refill the reserve to its total capacity and clear history.', change:'Current {energyLower}', newAction:'New action', editAction:'Edit action', name:'Description', value:'Adjustment', target:'Apply to', spend:'Spend', gain:'Add', magnitude:'Points', addName:'E.g. Upkeep', language:'Language', color:'{energy} color', blue:'Blue', red:'Red', yellow:'Yellow', green:'Green', purple:'Lilac', black:'Black', white:'White', gray:'Gray', pink:'Pink', orange:'Orange', gold:'Gold', silver:'Silver', edited:'Changes saved', invalidExpr:'Complete the operation', calcOpen:'Open adjustment', onTotal:'Changes total', deleted:'Action deleted', deleteAction:'Delete action', deletePrompt:'Delete this quick action?', reachedMax:'Reserve full', reachedZero:'Reserve empty', over:'Above capacity', zeroCapacity:'Zero capacity', invalid:'Enter a valid whole number.', unchanged:'No change', resetDone:'Reserve reset', applied:'applied', activeColor:'Selected color'
  }
 };
 const icons = {
+ trash:'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/>',
  history:'<path d="M3 10a9 9 0 1 1 1.5 7M3 4v6h6M12 7v5l3 2"/>',
  grip:'<circle cx="9" cy="5" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="19" r="1"/>',
  undo:'<path d="M4 9a8 8 0 1 1 1 9M4 3v6h6"/>',
@@ -38,15 +39,15 @@ function readSavedWorkspace(){
   return Energy.restoreWorkspace(raw);
 }
 workspace=readSavedWorkspace();state=Energy.activeReserve(workspace);
-const energyName=()=>state.energyName==='Energía'?messages[workspace.lang].defaultEnergy:state.energyName;
-const t=k=>(messages[workspace.lang][k] || k).replace(/\{energy(Lower)?\}/g,(_,lower)=>lower&&state.energyName==='Energía'?energyName().toLocaleLowerCase(workspace.lang):energyName());
+const energyName=()=>!state||state.energyName==='Energía'?messages[workspace.lang].defaultEnergy:state.energyName;
+const t=k=>(messages[workspace.lang][k] || k).replace(/\{energy(Lower)?\}/g,(_,lower)=>lower&&(!state||state.energyName==='Energía')?energyName().toLocaleLowerCase(workspace.lang):energyName());
 const escapeHTML=text=>String(text).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const th=k=>escapeHTML(t(k));
 const format=n=>new Intl.NumberFormat(workspace.lang==='es'?'es-ES':'en-US').format(n);
 const signed=n=>(n>0?'+':'−')+format(Math.abs(n));
 const displayName=a=>a.name||t(a.preset);
 const view=new ReservoirView($('#orb-canvas'),$('#sky'));
-let noticeTimer,mode='',expression='',actionDrag=null;
+let noticeTimer,mode='',expression='',actionDrag=null,tabDrag=null,suppressTabClickUntil=0;
 function notify(message){
   clearTimeout(noticeTimer);$('#notice').textContent=message;
   noticeTimer=setTimeout(()=>$('#notice').textContent='',2500);
@@ -62,7 +63,9 @@ function render(){
   document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t(el.dataset.t));
   document.querySelectorAll('[data-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.aria)));
   $('#settings').setAttribute('aria-label',t('settings'));
-  const [h,s,l,accent]=Energy.palettes[state.color];
+  $('#settings').disabled=!state;
+  $('#reserve-panel').hidden=!state;$('#empty-reserves').hidden=!!state;
+  const [h,s,l,accent]=Energy.palettes[state?.color||'blue'];
   const css=document.documentElement.style;
   css.setProperty('--accent',accent);
   css.setProperty('--light','color-mix(in srgb,'+accent+' 45%,white)');
@@ -70,6 +73,7 @@ function render(){
   css.setProperty('--glow','hsla('+h+','+s+'%,56%,.22)');
   css.setProperty('--edge','hsl('+h+','+Math.round(14+s*.11)+'%,23%)');
   css.setProperty('--panel','hsl('+h+','+Math.round(18+s*.18)+'%,12%)');
+  if(!state){renderTabs();return;}
   const ratio=state.total?state.current/state.total:(state.current>0?1:0);
   view.set(ratio,{h,s,l});
   const digits=String(state.current).length;
@@ -242,7 +246,7 @@ function paintPalette(container,color,onSelect){
   }
 }
 function showSettings(focusSelector){
-  openDialog('settings','settings','<label for="energy-name">'+th('energyName')+'</label><input id="energy-name" maxlength="24" aria-describedby="energy-name-help" autocomplete="off"><p id="energy-name-help" class="help">'+th('energyNameHelp')+'</p><span class="field-title" id="color-label">'+th('color')+'</span><div class="palette" role="group" aria-labelledby="color-label"></div><label for="language">'+th('language')+'</label><select id="language" aria-describedby="language-help"><option value="es">Español</option><option value="en">English</option></select><p class="help" id="language-help">'+th('languageHelp')+'</p><div class="buttons"><button class="primary" type="button" id="settings-done">'+th('done')+'</button></div>');
+  openDialog('settings','settings','<label for="energy-name">'+th('energyName')+'</label><input id="energy-name" maxlength="24" aria-describedby="energy-name-help" autocomplete="off"><p id="energy-name-help" class="help">'+th('energyNameHelp')+'</p><span class="field-title" id="color-label">'+th('color')+'</span><div class="palette" role="group" aria-labelledby="color-label"></div><label for="language">'+th('language')+'</label><select id="language" aria-describedby="language-help"><option value="es">Español</option><option value="en">English</option></select><p class="help" id="language-help">'+th('languageHelp')+'</p><div class="buttons"><button class="danger" type="button" id="delete-reserve"><i data-icon="trash"></i>'+th('deleteReserve')+'</button><button class="primary" type="button" id="settings-done">'+th('done')+'</button></div>');
   $('#energy-name').value=energyName();
   const saveName=()=>{
     const name=$('#energy-name');
@@ -258,36 +262,45 @@ function showSettings(focusSelector){
   $('#language').value=workspace.lang;
   $('#language').onchange=e=>{const lang=e.target.value;saveName();workspace.lang=lang;save();render();showSettings('#language');};
   $('#settings-done').onclick=()=>{saveName();finish();};
+  $('#delete-reserve').onclick=()=>{saveName();showDeleteReserve(state.id);};
   if(focusSelector)content.querySelector(focusSelector)?.focus({preventScroll:true});
 }
 function reserveLabel(reserve){return reserve.energyName==='Energía'?messages[workspace.lang].defaultEnergy:reserve.energyName;}
 function renderTabs(){
+  if(tabDrag){endTabDrag(false);return;}
   const list=$('#reserve-tabs'),scroll=list.scrollLeft;
   const focused=document.activeElement?.closest('.reserve-tab')?.dataset.reserveId;
   list.replaceChildren();
   for(const reserve of workspace.reserves){
     const tab=document.createElement('button');tab.type='button';tab.className='reserve-tab';tab.dataset.reserveId=reserve.id;tab.id='reserve-tab-'+reserve.id;
-    tab.setAttribute('role','tab');tab.setAttribute('aria-controls','reserve-panel');tab.setAttribute('aria-selected',reserve.id===state.id);tab.tabIndex=reserve.id===state.id?0:-1;
+    tab.setAttribute('role','tab');tab.setAttribute('aria-controls','reserve-panel');tab.setAttribute('aria-selected',reserve.id===state?.id);tab.tabIndex=reserve.id===state?.id?0:-1;
+    tab.setAttribute('aria-describedby','tab-help');tab.setAttribute('aria-keyshortcuts','Alt+ArrowLeft Alt+ArrowRight Delete');
     tab.setAttribute('aria-label',reserveLabel(reserve)+' · '+t(reserve.color));tab.title=reserveLabel(reserve)+' · '+t(reserve.color);
     const dot=document.createElement('span');dot.className='reserve-dot';dot.setAttribute('aria-hidden','true');
     const [h,s,l]=Energy.palettes[reserve.color];dot.style.background='hsl('+h+' '+s+'% '+l+'%)';
     const name=document.createElement('span');name.className='reserve-tab-name';name.textContent=reserveLabel(reserve);
-    tab.append(dot,name);list.append(tab);
+    const grip=document.createElement('span');grip.className='tab-grip';grip.setAttribute('aria-hidden','true');grip.innerHTML=icon('grip');
+    tab.append(grip,dot,name);list.append(tab);
     if(reserve.id===focused)tab.focus({preventScroll:true});
   }
   list.scrollLeft=scroll;
-  const selected=list.querySelector('[aria-selected="true"]'),bounds=list.getBoundingClientRect(),tabBounds=selected.getBoundingClientRect();
-  if(tabBounds.left<bounds.left)list.scrollLeft-=bounds.left-tabBounds.left;
-  else if(tabBounds.right>bounds.right)list.scrollLeft+=tabBounds.right-bounds.right;
-  $('#reserve-panel').setAttribute('aria-labelledby','reserve-tab-'+state.id);
+  const selected=list.querySelector('[aria-selected="true"]');
+  if(selected){
+    const bounds=list.getBoundingClientRect(),tabBounds=selected.getBoundingClientRect();
+    if(tabBounds.left<bounds.left)list.scrollLeft-=bounds.left-tabBounds.left;
+    else if(tabBounds.right>bounds.right)list.scrollLeft+=tabBounds.right-bounds.right;
+    $('#reserve-panel').setAttribute('aria-labelledby',selected.id);
+  }else $('#reserve-panel').removeAttribute('aria-labelledby');
 }
-function focusReserveTab(){
-  const tab=document.getElementById('reserve-tab-'+state.id);
+function focusReserveTab(id=state?.id){
+  const tab=document.getElementById('reserve-tab-'+id);
+  if(!tab){$('#add-reserve').focus({preventScroll:true});return;}
   tab.focus({preventScroll:true});tab.scrollIntoView({block:'nearest',inline:'nearest'});
 }
 function switchReserve(id){
   const reserve=workspace.reserves.find(item=>item.id===id);if(!reserve||reserve===state)return;
   if(actionDrag)endActionDrag(false);
+  if(tabDrag)endTabDrag(false);
   if(dialog.open)finish();
   state=reserve;workspace.activeId=reserve.id;
   save();render();$('#actions-list').scrollTop=0;$('#notice').textContent='';focusReserveTab();
@@ -306,14 +319,75 @@ function showNewReserve(){
   };
   $('#new-energy-name').focus();$('#new-energy-name').select();
 }
-$('#add-reserve').onclick=showNewReserve;
-$('#reserve-tabs').onclick=e=>{const tab=e.target.closest('.reserve-tab');if(tab)switchReserve(tab.dataset.reserveId);};
-$('#reserve-tabs').addEventListener('keydown',e=>{
-  if(!e.target.closest('.reserve-tab')||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
-  e.preventDefault();const index=workspace.reserves.findIndex(reserve=>reserve.id===state.id);
-  const next=e.key==='Home'?0:e.key==='End'?workspace.reserves.length-1:(index+(e.key==='ArrowRight'?1:-1)+workspace.reserves.length)%workspace.reserves.length;
-  switchReserve(workspace.reserves[next].id);
+function showDeleteReserve(id){
+  const reserve=workspace.reserves.find(item=>item.id===id);if(!reserve)return;
+  openDialog('delete-reserve','deleteReserve','<p class="delete-reserve-name"></p><p class="help">'+th('deleteReservePrompt')+'</p>'+buttons('remove'));
+  content.querySelector('.delete-reserve-name').textContent=reserveLabel(reserve);
+  $('#submit').classList.add('delete-confirm');
+  $('#submit').onclick=()=>{
+    if(actionDrag)endActionDrag(false);if(tabDrag)endTabDrag(false);
+    if(!Energy.removeReserve(workspace,id))return;
+    state=Energy.activeReserve(workspace);save();finish();render();focusReserveTab();notify(t('reserveDeleted'));
+  };
+  content.querySelector('[data-dismiss]').focus();
+}
+$('#add-reserve').onclick=$('#empty-add-reserve').onclick=showNewReserve;
+const tabList=$('#reserve-tabs');
+tabList.onclick=e=>{
+  if(e.target.closest('.tab-grip')||performance.now()<suppressTabClickUntil)return;
+  const tab=e.target.closest('.reserve-tab');if(tab)switchReserve(tab.dataset.reserveId);
+};
+tabList.addEventListener('keydown',e=>{
+  const tab=e.target.closest('.reserve-tab');if(!tab)return;
+  if(e.key==='Delete'){e.preventDefault();showDeleteReserve(tab.dataset.reserveId);return;}
+  if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+  e.preventDefault();const index=workspace.reserves.findIndex(reserve=>reserve.id===tab.dataset.reserveId);
+  const next=e.key==='Home'?0:e.key==='End'?workspace.reserves.length-1:e.altKey?Math.max(0,Math.min(workspace.reserves.length-1,index+(e.key==='ArrowRight'?1:-1))):(index+(e.key==='ArrowRight'?1:-1)+workspace.reserves.length)%workspace.reserves.length;
+  if(e.altKey){
+    if(Energy.moveReserve(workspace,tab.dataset.reserveId,next)){save();renderTabs();focusReserveTab(tab.dataset.reserveId);notify(t('reordered'));}
+  }else switchReserve(workspace.reserves[next].id);
 });
+tabList.addEventListener('pointerdown',e=>{
+  const grip=e.target.closest('.tab-grip');
+  if(!grip||e.button!==0||!e.isPrimary||tabDrag||actionDrag)return;
+  e.preventDefault();const tab=grip.closest('.reserve-tab'),rect=tab.getBoundingClientRect();
+  tab.setPointerCapture(e.pointerId);
+  tabDrag={tab,pointer:e.pointerId,startX:e.clientX,startY:e.clientY,x:e.clientX,offset:e.clientX-rect.left,moved:false,ghost:null,frame:0};
+});
+document.addEventListener('pointermove',e=>{
+  const drag=tabDrag;if(!drag||e.pointerId!==drag.pointer)return;
+  drag.x=e.clientX;
+  if(!drag.moved&&Math.hypot(e.clientX-drag.startX,e.clientY-drag.startY)<6)return;
+  e.preventDefault();
+  if(!drag.moved){
+    drag.moved=true;const rect=drag.tab.getBoundingClientRect();
+    drag.ghost=drag.tab.cloneNode(true);drag.ghost.removeAttribute('id');drag.ghost.removeAttribute('aria-controls');drag.ghost.setAttribute('aria-hidden','true');drag.ghost.inert=true;drag.ghost.classList.add('tab-drag-ghost');
+    Object.assign(drag.ghost.style,{width:rect.width+'px',height:rect.height+'px',top:rect.top+'px'});document.body.append(drag.ghost);drag.tab.classList.add('tab-dragging');
+    const tick=()=>{if(tabDrag!==drag)return;positionTabDrag(drag);drag.frame=requestAnimationFrame(tick);};tick();
+  }
+  positionTabDrag(drag);
+});
+function positionTabDrag(drag){
+  drag.ghost.style.left=(drag.x-drag.offset)+'px';
+  const bounds=tabList.getBoundingClientRect();
+  tabList.scrollLeft+=drag.x<bounds.left+28?-7:drag.x>bounds.right-28?7:0;
+  const next=[...tabList.children].find(tab=>tab!==drag.tab&&drag.x<tab.getBoundingClientRect().left+tab.getBoundingClientRect().width/2);
+  if((next||null)!==drag.tab.nextElementSibling)tabList.insertBefore(drag.tab,next||null);
+}
+function endTabDrag(commit){
+  const drag=tabDrag;if(!drag)return;tabDrag=null;
+  cancelAnimationFrame(drag.frame);drag.ghost?.remove();drag.tab.classList.remove('tab-dragging');
+  if(drag.tab.hasPointerCapture(drag.pointer))drag.tab.releasePointerCapture(drag.pointer);
+  if(drag.moved){
+    suppressTabClickUntil=performance.now()+250;
+    if(commit&&Energy.reorderReserves(workspace,[...tabList.children].map(tab=>tab.dataset.reserveId))){save();notify(t('reordered'));}
+  }
+  renderTabs();focusReserveTab(drag.tab.dataset.reserveId);
+}
+document.addEventListener('pointerup',e=>{if(e.pointerId===tabDrag?.pointer){tabDrag.x=e.clientX;if(tabDrag.moved)positionTabDrag(tabDrag);endTabDrag(true);}});
+document.addEventListener('pointercancel',()=>endTabDrag(false));
+window.addEventListener('blur',()=>endTabDrag(false));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&tabDrag){e.preventDefault();endTabDrag(false);}});
 $('#minus').onclick=()=>change(-1);$('#plus').onclick=()=>change(1);
 $('#orb').onclick=$('#calc-hint').onclick=showCalculator;
 $('#history').onclick=showHistory;
@@ -329,7 +403,7 @@ $('#actions-list').onclick=e=>{
 const actionList=$('#actions-list');
 actionList.addEventListener('pointerdown',e=>{
   const handle=e.target.closest('.drag-handle');
-  if(!handle||e.button!==0||!e.isPrimary||actionDrag)return;
+  if(!handle||e.button!==0||!e.isPrimary||actionDrag||tabDrag)return;
   const row=handle.closest('.action-row'),rect=row.getBoundingClientRect();
   handle.setPointerCapture(e.pointerId);
   actionDrag={handle,row,pointer:e.pointerId,startX:e.clientX,startY:e.clientY,y:e.clientY,offset:e.clientY-rect.top,moved:false,ghost:null,frame:0};
@@ -390,7 +464,7 @@ actionList.addEventListener('keydown',e=>{
 });
 window.addEventListener('storage',e=>{
   if(e.storageArea!==localStorage||(e.key!==Energy.workspaceKey&&e.key!==null))return;
-  try{const restored=Energy.restoreWorkspace(JSON.parse(e.newValue));if(actionDrag)endActionDrag(false);if(dialog.open)finish();workspace=restored;state=Energy.activeReserve(workspace);render();}
+  try{const restored=Energy.restoreWorkspace(JSON.parse(e.newValue));if(actionDrag)endActionDrag(false);if(tabDrag)endTabDrag(false);if(dialog.open)finish();workspace=restored;state=Energy.activeReserve(workspace);render();}
   catch{/* An unreadable value is ignored until a valid update arrives. */}
 });
 renderIcons(document);render();save();

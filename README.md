@@ -39,3 +39,8 @@ Puedes abrir `index.html` en el ordenador. Para probar también el modo sin cone
 - Cada reserva conserva su energía actual, total, nombre, color, acciones (y su orden) e historial de forma independiente. Reiniciar o deshacer afecta solo a la reserva seleccionada. El idioma es común a toda la aplicación.
 - La actualización conserva la reserva de la versión anterior como primera pestaña. Las reservas se guardan en un registro nuevo del navegador, conservando intacto el registro anterior.
 - Para cambiar de pestaña con teclado, usa las flechas izquierda/derecha o Inicio/Fin. La última reserva seleccionada se conserva al recargar.
+
+## Eliminar y reordenar pestañas
+
+- En **Ajustes → Eliminar reserva**, confirma la eliminación de esa reserva con sus valores, acciones e historial. Cancelar conserva los datos. Al eliminar la reserva activa se selecciona la siguiente o, si no hay otra después, la anterior. Si eliminas todas, puedes crear una nueva desde la pantalla vacía.
+- Arrastra el asa de puntos de una pestaña para cambiar su posición. También puedes usar **Alt + flecha izquierda/derecha** sobre una pestaña enfocada; **Alt + Inicio/Fin** la lleva al principio/final. El arrastre desplaza la barra al llegar a los bordes y Escape cancela el gesto. El orden queda guardado y la reserva seleccionada no cambia.

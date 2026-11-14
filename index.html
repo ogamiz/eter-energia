@@ -21,10 +21,16 @@
 </div></header>
 <div class="reserve-nav">
   <div class="reserve-nav-inner">
+    <span id="tab-help" class="sr-only" data-t="tabHelp">Arrastra el asa para reordenar. Con teclado, usa Alt y las flechas izquierda o derecha.</span>
     <div id="reserve-tabs" role="tablist" aria-label="Reservas de energía" data-aria="reserves"></div>
     <button id="add-reserve" class="add" type="button" aria-haspopup="dialog" data-aria="addReserve"><i data-icon="plus"></i><span data-t="addReserve">Añadir reserva</span></button>
   </div>
 </div>
+<section id="empty-reserves" hidden>
+  <h1 data-t="noReserves">No hay reservas</h1>
+  <p data-t="emptyReservesHelp">Crea una reserva para empezar.</p>
+  <button id="empty-add-reserve" class="add" type="button"><i data-icon="plus"></i><span data-t="addReserve">Añadir reserva</span></button>
+</section>
 <main id="reserve-panel" role="tabpanel">
   <div class="section-head first"><h1 data-t="reserve">Reserva de energía</h1>
     <button id="total" class="total" type="button"><span class="micro" data-t="total">Energía total</span><strong id="total-value">100</strong><i data-icon="pencil"></i></button>

@@ -93,11 +93,12 @@ const Energy = (() => {
     }else if(raw?.version===1){
       reserves=[makeReserve(raw,'initial')];
     }
-    if(!reserves.length)reserves=[makeReserve(null,'initial')];
-    const activeId=reserves.some(reserve=>reserve.id===raw?.activeId)?raw.activeId:reserves[0].id;
+    const intentionallyEmpty=raw?.version===2&&Array.isArray(raw.reserves)&&raw.reserves.length===0;
+    if(!reserves.length&&!intentionallyEmpty)reserves=[makeReserve(null,'initial')];
+    const activeId=reserves.some(reserve=>reserve.id===raw?.activeId)?raw.activeId:reserves[0]?.id||null;
     return {version:2,lang,activeId,reserves};
   }
-  function activeReserve(workspace){return workspace.reserves.find(reserve=>reserve.id===workspace.activeId)||workspace.reserves[0];}
+  function activeReserve(workspace){return workspace.reserves.find(reserve=>reserve.id===workspace.activeId)||workspace.reserves[0]||null;}
   function addReserve(workspace,name='Energía',color='blue'){
     let id;
     do{id=globalThis.crypto?.randomUUID?.()||'reserve-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);}
@@ -106,6 +107,25 @@ const Energy = (() => {
     workspace.reserves.push(reserve);workspace.activeId=id;
     return reserve;
   }
-  return {workspaceKey,restoreWorkspace,activeReserve,addReserve,record,undo,reset,limit,key,palettes,defaults,restore,evaluate,result,whole,normalizeName};
+  function removeReserve(workspace,id){
+    const index=workspace.reserves.findIndex(reserve=>reserve.id===id);
+    if(index<0)return null;
+    const [removed]=workspace.reserves.splice(index,1);
+    if(workspace.activeId===id)workspace.activeId=(workspace.reserves[index]||workspace.reserves[index-1])?.id||null;
+    return removed;
+  }
+  function moveReserve(workspace,id,next){
+    const index=workspace.reserves.findIndex(reserve=>reserve.id===id);
+    if(index<0||!Number.isInteger(next)||next<0||next>=workspace.reserves.length||index===next)return false;
+    const [reserve]=workspace.reserves.splice(index,1);workspace.reserves.splice(next,0,reserve);
+    return true;
+  }
+  function reorderReserves(workspace,ids){
+    const byId=new Map(workspace.reserves.map(reserve=>[reserve.id,reserve]));
+    if(ids.length!==byId.size||new Set(ids).size!==ids.length||ids.some(id=>!byId.has(id)))return false;
+    if(ids.every((id,index)=>workspace.reserves[index].id===id))return false;
+    workspace.reserves=ids.map(id=>byId.get(id));return true;
+  }
+  return {removeReserve,moveReserve,reorderReserves,workspaceKey,restoreWorkspace,activeReserve,addReserve,record,undo,reset,limit,key,palettes,defaults,restore,evaluate,result,whole,normalizeName};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Energy;
