@@ -20,8 +20,8 @@ Guía de GitHub: https://docs.github.com/es/pages/getting-started-with-github-pa
 - Pulsa la esfera para abrir la calculadora. Teclea, por ejemplo, `−15 + 8` y comprueba el resultado antes de aceptar. La operación se suma a la energía actual. Cancelar descarta la entrada. También puedes usar un teclado físico.
 - Los botones laterales cambian la energía actual de uno en uno. La energía puede bajar hasta cero y las recuperaciones llegan hasta el total.
 - Pulsa **Energía total** para editar la capacidad. La energía actual se conserva incluso si supera el nuevo total. En ese caso puedes gastar desde el valor real, y las recuperaciones vuelven a estar disponibles cuando quedas por debajo del total.
-- Abre **Acciones rápidas** en la esquina superior izquierda. Toca una acción para ejecutarla y volver a la esfera. Cada fila indica cuántos puntos cambia y si afecta a la energía actual o al total. **Nueva acción** permite guardar otra. Pulsa **···** para editar o eliminar una acción. Para cerrar el menú sin cambiar la energía, toca la X o la zona exterior, o pulsa Escape.
-- En **Ajustes** puedes escoger español o inglés y uno de los doce colores. La animación respeta la preferencia del dispositivo de reducir movimiento.
+- **Acciones rápidas** aparece debajo de la esfera en una lista con desplazamiento propio. La tarjeta de energía sigue visible mientras recorres las acciones. Toca una fila para ejecutarla o **···** para editarla. **Nueva acción** permite añadir otra.
+- En **Ajustes** puedes cambiar el nombre de la energía (por ejemplo, Maná o Ki), el idioma y uno de los doce colores. El nombre se conserva entre sesiones; dejarlo vacío restaura Energía. La animación respeta la preferencia de movimiento reducido.
 - Los cambios se guardan en el navegador de ese dispositivo y dirección. El uso sin conexión está disponible después de una primera carga completa con conexión y la instalación de la caché. Al borrar los datos del sitio se restablecen los valores iniciales.
 
 ## Probar antes de publicar

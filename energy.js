@@ -9,12 +9,13 @@ const Energy = (() => {
     orange:[24,91,52,'#ffbd88'], gold:[41,74,46,'#e8c878'], silver:[210,22,66,'#ccdae5']
   };
   function defaults(){
-    return {version:1,total:100,current:72,lang:'es',color:'blue',actions:[
+    return {version:1,total:100,current:72,lang:'es',color:'blue',energyName:'Energía',actions:[
       {id:'start-1',preset:'maintenance',name:'',delta:-6,target:'total'},
       {id:'start-2',preset:'recovery',name:'',delta:8,target:'current'}
     ]};
   }
   const whole=n=>Number.isSafeInteger(n)&&n>=0&&n<=limit;
+  const normalizeName=name=>typeof name==='string' ? name.trim().replace(/\s+/g,' ').slice(0,24) || 'Energía' : 'Energía';
   function restore(raw) {
     const state=defaults();
     if (!raw || raw.version!==1) return state;
@@ -22,6 +23,7 @@ const Energy = (() => {
     if(whole(raw.current))state.current=raw.current;
     if(['en','es'].includes(raw.lang))state.lang=raw.lang;
     if(Object.hasOwn(palettes, raw.color))state.color=raw.color;
+    state.energyName=normalizeName(raw.energyName);
     if(Array.isArray(raw.actions)){
       const seen=new Set();
       state.actions=raw.actions.filter(a=>{
@@ -44,6 +46,6 @@ const Energy = (() => {
     // Lowering capacity can create an overfull reserve. Spending uses its real value.
     return Math.max(0,Math.min(Math.max(state.current,state.total),state.current+delta));
   }
-  return {limit,key,palettes,defaults,restore,evaluate,result,whole};
+  return {limit,key,palettes,defaults,restore,evaluate,result,whole,normalizeName};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Energy;

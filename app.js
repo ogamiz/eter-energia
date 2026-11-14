@@ -1,12 +1,12 @@
 'use strict';
 const messages = {
  es:{
-  tag:'Gestor de energía', settings:'Ajustes', reserve:'Reserva de energía', total:'Energía total', current:'Energía actual', addOne:'Añadir un punto', subtractOne:'Restar un punto',
-  tap:'Toca la esfera para calcular', available:'disponible', reset:'Reiniciar', actions:'Acciones rápidas', add:'Añadir', local:'Guardado en este dispositivo', offlineSave:'El navegador no permite guardar los cambios', close:'Cerrar', apply:'Aplicar', edit:'Editar', cancel:'Cancelar', ok:'Aceptar', save:'Guardar', remove:'Eliminar', done:'Listo', maintenance:'Mantenimiento', recovery:'Recuperación', empty:'Añade tu primera acción rápida.', calculator:'Ajustar energía', result:'Energía resultante', clear:'Limpiar', backspace:'Borrar última cifra', expr:'Operación', example:'Ejemplo: −15 + 8', maxTitle:'Cambiar energía total', maxHelp:'La energía actual conserva su valor.', resetTitle:'Reiniciar energía', resetHelp:'Recuperar la reserva hasta su valor total.', change:'Energía actual', newAction:'Nueva acción', editAction:'Editar acción', name:'Descripción', value:'Variación', target:'Aplicar a', spend:'Gastar', gain:'Añadir', magnitude:'Puntos', addName:'Ej. Mantenimiento', language:'Idioma', color:'Color de la energía', blue:'Azul', red:'Rojo', yellow:'Amarillo', green:'Verde', purple:'Lila', black:'Negro', white:'Blanco', gray:'Gris', pink:'Rosa', orange:'Naranja', gold:'Dorado', silver:'Plateado', edited:'Cambios guardados', invalidExpr:'Completa la operación', calcOpen:'Abrir calculadora', onTotal:'Sobre el total', deleted:'Acción eliminada', deleteAction:'Eliminar acción', deletePrompt:'¿Eliminar esta acción rápida?', reachedMax:'Reserva llena', reachedZero:'Reserva vacía', over:'Por encima del total', zeroCapacity:'Sin capacidad', invalid:'Introduce un número entero válido.', unchanged:'Sin cambios', resetDone:'Reserva reiniciada', applied:'aplicada', activeColor:'Color seleccionado'
+  defaultEnergy:'Energía', energyName:'Nombre de la energía', energyNameHelp:'Se usa en la reserva, el total y las acciones. Vacío restaura Energía.', tag:'Gestor de {energyLower}', settings:'Ajustes', reserve:'Reserva de {energyLower}', total:'{energy} total', current:'{energy} actual', addOne:'Añadir un punto', subtractOne:'Restar un punto',
+  tap:'Toca la esfera para ajustar', available:'disponible', reset:'Reiniciar', actions:'Acciones rápidas', add:'Añadir', local:'Guardado en este dispositivo', offlineSave:'El navegador no permite guardar los cambios', close:'Cerrar', apply:'Aplicar', edit:'Editar', cancel:'Cancelar', ok:'Aceptar', save:'Guardar', remove:'Eliminar', done:'Listo', maintenance:'Mantenimiento', recovery:'Recuperación', empty:'Añade tu primera acción rápida.', calculator:'Ajustar {energyLower}', result:'{energy} resultante', clear:'Limpiar', backspace:'Borrar última cifra', expr:'Operación', example:'Ejemplo: −15 + 8', maxTitle:'Cambiar {energyLower} total', maxHelp:'La reserva actual conserva su valor.', resetTitle:'Reiniciar {energyLower}', resetHelp:'Recuperar la reserva hasta su valor total.', change:'{energy} actual', newAction:'Nueva acción', editAction:'Editar acción', name:'Descripción', value:'Variación', target:'Aplicar a', spend:'Gastar', gain:'Añadir', magnitude:'Puntos', addName:'Ej. Mantenimiento', language:'Idioma', color:'Color de {energyLower}', blue:'Azul', red:'Rojo', yellow:'Amarillo', green:'Verde', purple:'Lila', black:'Negro', white:'Blanco', gray:'Gris', pink:'Rosa', orange:'Naranja', gold:'Dorado', silver:'Plateado', edited:'Cambios guardados', invalidExpr:'Completa la operación', calcOpen:'Abrir ajuste', onTotal:'Sobre el total', deleted:'Acción eliminada', deleteAction:'Eliminar acción', deletePrompt:'¿Eliminar esta acción rápida?', reachedMax:'Reserva llena', reachedZero:'Reserva vacía', over:'Por encima del total', zeroCapacity:'Sin capacidad', invalid:'Introduce un número entero válido.', unchanged:'Sin cambios', resetDone:'Reserva reiniciada', applied:'aplicada', activeColor:'Color seleccionado'
  },
  en:{
-  tag:'Energy tracker', settings:'Settings', reserve:'Energy reserve', total:'Total energy', current:'Current energy', addOne:'Add one point', subtractOne:'Subtract one point',
-  tap:'Tap the sphere to calculate', available:'available', reset:'Reset', actions:'Quick actions', add:'Add', local:'Saved on this device', offlineSave:'This browser cannot save changes', close:'Close', apply:'Apply', edit:'Edit', cancel:'Cancel', ok:'Confirm', save:'Save', remove:'Delete', done:'Done', maintenance:'Upkeep', recovery:'Recovery', empty:'Add your first quick action.', calculator:'Adjust energy', result:'Resulting energy', clear:'Clear', backspace:'Delete last digit', expr:'Operation', example:'Example: −15 + 8', maxTitle:'Change total energy', maxHelp:'Current energy keeps its value.', resetTitle:'Reset energy', resetHelp:'Refill the reserve to its total capacity.', change:'Current energy', newAction:'New action', editAction:'Edit action', name:'Description', value:'Adjustment', target:'Apply to', spend:'Spend', gain:'Add', magnitude:'Points', addName:'E.g. Upkeep', language:'Language', color:'Energy color', blue:'Blue', red:'Red', yellow:'Yellow', green:'Green', purple:'Lilac', black:'Black', white:'White', gray:'Gray', pink:'Pink', orange:'Orange', gold:'Gold', silver:'Silver', edited:'Changes saved', invalidExpr:'Complete the operation', calcOpen:'Open calculator', onTotal:'Changes total', deleted:'Action deleted', deleteAction:'Delete action', deletePrompt:'Delete this quick action?', reachedMax:'Reserve full', reachedZero:'Reserve empty', over:'Above capacity', zeroCapacity:'Zero capacity', invalid:'Enter a valid whole number.', unchanged:'No change', resetDone:'Reserve reset', applied:'applied', activeColor:'Selected color'
+  defaultEnergy:'Energy', energyName:'Energy name', energyNameHelp:'Used for the reserve, total and actions. Leave blank to restore Energy.', tag:'{energy} tracker', settings:'Settings', reserve:'{energy} reserve', total:'Total {energyLower}', current:'Current {energyLower}', addOne:'Add one point', subtractOne:'Subtract one point',
+  tap:'Tap the sphere to adjust', available:'available', reset:'Reset', actions:'Quick actions', add:'Add', local:'Saved on this device', offlineSave:'This browser cannot save changes', close:'Close', apply:'Apply', edit:'Edit', cancel:'Cancel', ok:'Confirm', save:'Save', remove:'Delete', done:'Done', maintenance:'Upkeep', recovery:'Recovery', empty:'Add your first quick action.', calculator:'Adjust {energyLower}', result:'Resulting {energyLower}', clear:'Clear', backspace:'Delete last digit', expr:'Operation', example:'Example: −15 + 8', maxTitle:'Change total {energyLower}', maxHelp:'The current reserve keeps its value.', resetTitle:'Reset {energyLower}', resetHelp:'Refill the reserve to its total capacity.', change:'Current {energyLower}', newAction:'New action', editAction:'Edit action', name:'Description', value:'Adjustment', target:'Apply to', spend:'Spend', gain:'Add', magnitude:'Points', addName:'E.g. Upkeep', language:'Language', color:'{energy} color', blue:'Blue', red:'Red', yellow:'Yellow', green:'Green', purple:'Lilac', black:'Black', white:'White', gray:'Gray', pink:'Pink', orange:'Orange', gold:'Gold', silver:'Silver', edited:'Changes saved', invalidExpr:'Complete the operation', calcOpen:'Open adjustment', onTotal:'Changes total', deleted:'Action deleted', deleteAction:'Delete action', deletePrompt:'Delete this quick action?', reachedMax:'Reserve full', reachedZero:'Reserve empty', over:'Above capacity', zeroCapacity:'Zero capacity', invalid:'Enter a valid whole number.', unchanged:'No change', resetDone:'Reserve reset', applied:'applied', activeColor:'Selected color'
  }
 };
 const icons = {
@@ -25,13 +25,15 @@ const icons = {
 };
 const $=s=>document.querySelector(s);
 const dialog=$('#dialog'),content=$('#dialog-content');
-const drawer=$('#actions-drawer'),actionsToggle=$('#actions-toggle');
 const icon=name=>'<svg viewBox="0 0 24 24" aria-hidden="true">'+icons[name]+'</svg>';
 function renderIcons(parent){parent.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));}
 let state,canSave=true;
 try{state=Energy.restore(JSON.parse(localStorage.getItem(Energy.key)));}
 catch{state=Energy.defaults();}
-const t=k=>messages[state.lang][k] || k;
+const energyName=()=>state.energyName==='Energía'?messages[state.lang].defaultEnergy:state.energyName;
+const t=k=>(messages[state.lang][k] || k).replace(/\{energy(Lower)?\}/g,(_,lower)=>lower&&state.energyName==='Energía'?energyName().toLocaleLowerCase(state.lang):energyName());
+const escapeHTML=text=>String(text).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const th=k=>escapeHTML(t(k));
 const format=n=>new Intl.NumberFormat(state.lang==='es'?'es-ES':'en-US').format(n);
 const signed=n=>(n>0?'+':'−')+format(Math.abs(n));
 const displayName=a=>a.name||t(a.preset);
@@ -77,7 +79,7 @@ function render(){
   renderActions();
 }
 function renderActions(){
-  const list=$('#actions-list');
+  const list=$('#actions-list'),oldScroll=list.scrollTop;
   const focused=document.activeElement?.closest('.action-row');
   const oldFocus=focused && [focused.dataset.id,document.activeElement.className];
   list.replaceChildren();
@@ -96,6 +98,7 @@ function renderActions(){
     renderIcons(row);list.append(row);
     if(oldFocus && a.id===oldFocus[0])Array.from(row.querySelectorAll('button')).find(b=>b.className===oldFocus[1])?.focus({preventScroll:true});
   }
+  list.scrollTop=oldScroll;
 }
 function change(delta,target='current',actionName=''){
   const old=state[target],next=Energy.result(state,delta,target);
@@ -112,7 +115,7 @@ function openDialog(type,title,body){
 }
 function finish(){dialog.close();}
 function buttons(primary='ok',danger=false){
-  return '<div class="buttons">'+(danger?'<button class="danger" type="button" id="remove">'+t('remove')+'</button>':'')+'<button type="button" class="secondary" data-dismiss>'+t('cancel')+'</button><button class="primary" id="submit" type="submit">'+t(primary)+'</button></div>';
+  return '<div class="buttons">'+(danger?'<button class="danger" type="button" id="remove">'+th('remove')+'</button>':'')+'<button type="button" class="secondary" data-dismiss>'+th('cancel')+'</button><button class="primary" id="submit" type="submit">'+th(primary)+'</button></div>';
 }
 $('#close').onclick=finish;
 dialog.addEventListener('close',()=>{mode='';content.replaceChildren();});
@@ -123,7 +126,7 @@ dialog.addEventListener('click',e=>{
 function showCalculator(){
   expression='';
   const keys=['7','8','9','back','4','5','6','-','1','2','3','+','0','clear'];
-  openDialog('calc','calculator','<div class="preview"><output class="expr" tabindex="-1" aria-label="'+t('expr')+'"></output><div class="preview-meta"><span>'+t('result')+'</span><strong id="calc-result"></strong></div></div><div class="keys">'+keys.map(k=>'<button type="button" class="key '+(k==='0'?'wide':'')+(!/^\d$/.test(k)?' op':'')+'" data-key="'+k+'"'+(k==='clear'||k==='back'?' aria-label="'+t(k==='back'?'backspace':'clear')+'"':'')+'>'+(k==='back'?'<i data-icon="back"></i>':k==='clear'?'C':k==='-'?'−':k)+'</button>').join('')+'</div>'+buttons());
+  openDialog('calc','calculator','<div class="preview"><output class="expr" tabindex="-1" aria-label="'+th('expr')+'"></output><div class="preview-meta"><span>'+th('result')+'</span><strong id="calc-result"></strong></div></div><div class="keys">'+keys.map(k=>'<button type="button" class="key '+(k==='0'?'wide':'')+(!/^\d$/.test(k)?' op':'')+'" data-key="'+k+'"'+(k==='clear'||k==='back'?' aria-label="'+th(k==='back'?'backspace':'clear')+'"':'')+'>'+(k==='back'?'<i data-icon="back"></i>':k==='clear'?'C':k==='-'?'−':k)+'</button>').join('')+'</div>'+buttons());
   content.querySelector('.keys').onclick=e=>{const key=e.target.closest('[data-key]');if(key)calcKey(key.dataset.key);};
   $('#submit').onclick=applyCalc;updateCalc();$('.expr').focus({preventScroll:true});
 }
@@ -155,7 +158,7 @@ document.addEventListener('keydown',e=>{
 });
 function numberField(id,min){return '<input id="'+id+'" type="number" required step="1" inputmode="numeric" min="'+min+'" max="'+Energy.limit+'">';}
 function showTotal(){
-  openDialog('total','maxTitle','<form><label for="capacity">'+t('total')+'</label>'+numberField('capacity',0)+'<p class="help">'+t('maxHelp')+'</p>'+buttons('save')+'</form>');
+  openDialog('total','maxTitle','<form><label for="capacity">'+th('total')+'</label>'+numberField('capacity',0)+'<p class="help">'+th('maxHelp')+'</p>'+buttons('save')+'</form>');
   $('#capacity').value=state.total;
   content.querySelector('form').onsubmit=e=>{
     e.preventDefault();const n=$('#capacity').valueAsNumber;if(!Energy.whole(n))return;
@@ -163,12 +166,12 @@ function showTotal(){
   };
 }
 function showReset(){
-  openDialog('reset','resetTitle','<p class="help">'+t('resetHelp')+'</p><div class="preview-meta">'+t('change')+'<strong>'+format(state.current)+' → '+format(state.total)+'</strong></div>'+buttons('reset'));
+  openDialog('reset','resetTitle','<p class="help">'+th('resetHelp')+'</p><div class="preview-meta">'+th('change')+'<strong>'+format(state.current)+' → '+format(state.total)+'</strong></div>'+buttons('reset'));
   $('#submit').onclick=()=>{state.current=state.total;save();finish();render();notify(t('resetDone')+' · '+format(state.current));};
 }
 function showAction(a){
   let sign=a&&a.delta>0?1:-1;
-  openDialog('action',a?'editAction':'newAction','<form><label for="action-name">'+t('name')+'</label><input id="action-name" required maxlength="80" placeholder="'+t('addName')+'"><span class="field-title" id="adjust-title">'+t('value')+'</span><div class="choices" role="group" aria-labelledby="adjust-title"><button type="button" data-sign="-1">− '+t('spend')+'</button><button type="button" data-sign="1">+ '+t('gain')+'</button></div><label for="magnitude">'+t('magnitude')+'</label>'+numberField('magnitude',1)+'<label for="target">'+t('target')+'</label><select id="target"><option value="current">'+t('current')+'</option><option value="total">'+t('total')+'</option></select>'+buttons('save',!!a)+'</form>');
+  openDialog('action',a?'editAction':'newAction','<form><label for="action-name">'+th('name')+'</label><input id="action-name" required maxlength="80" placeholder="'+th('addName')+'"><span class="field-title" id="adjust-title">'+th('value')+'</span><div class="choices" role="group" aria-labelledby="adjust-title"><button type="button" data-sign="-1">− '+th('spend')+'</button><button type="button" data-sign="1">+ '+th('gain')+'</button></div><label for="magnitude">'+th('magnitude')+'</label>'+numberField('magnitude',1)+'<label for="target">'+th('target')+'</label><select id="target"><option value="current">'+th('current')+'</option><option value="total">'+th('total')+'</option></select>'+buttons('save',!!a)+'</form>');
   $('#action-name').value=a?displayName(a):'';$('#magnitude').value=a?Math.abs(a.delta):'';$('#target').value=a?a.target:'current';
   const showSign=()=>content.querySelectorAll('[data-sign]').forEach(b=>{const sel=Number(b.dataset.sign)===sign;b.classList.toggle('chosen',sel);b.setAttribute('aria-pressed',sel);});
   showSign();content.querySelector('.choices').onclick=e=>{const b=e.target.closest('[data-sign]');if(b){sign=Number(b.dataset.sign);showSign();}};
@@ -188,7 +191,18 @@ function showAction(a){
   };
 }
 function showSettings(focusSelector){
-  openDialog('settings','settings','<label for="language">'+t('language')+'</label><select id="language"><option value="es">Español</option><option value="en">English</option></select><span class="field-title" id="color-label">'+t('color')+'</span><div class="palette" role="group" aria-labelledby="color-label"></div><div class="buttons"><button class="primary" type="button" id="settings-done">'+t('done')+'</button></div>');
+  openDialog('settings','settings','<label for="energy-name">'+th('energyName')+'</label><input id="energy-name" maxlength="24" aria-describedby="energy-name-help" autocomplete="off"><p id="energy-name-help" class="help">'+th('energyNameHelp')+'</p><label for="language">'+th('language')+'</label><select id="language"><option value="es">Español</option><option value="en">English</option></select><span class="field-title" id="color-label">'+th('color')+'</span><div class="palette" role="group" aria-labelledby="color-label"></div><div class="buttons"><button class="primary" type="button" id="settings-done">'+th('done')+'</button></div>');
+  $('#energy-name').value=energyName();
+  const saveName=()=>{
+    const name=$('#energy-name');
+    state.energyName=name.value.trim()===messages[state.lang].defaultEnergy?'Energía':Energy.normalizeName(name.value);
+    name.value=energyName();
+    save();render();
+    $('#dialog-title').textContent=t('settings');
+    $('#color-label').textContent=t('color');
+  };
+  $('#energy-name').onchange=saveName;
+  $('#energy-name').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();saveName();finish();}};
   $('#language').value=state.lang;
   $('#language').onchange=e=>{state.lang=e.target.value;save();render();showSettings('#language');};
   const order=['red','blue','yellow','green','purple','black','white','gray','pink','orange','gold','silver'];
@@ -196,51 +210,24 @@ function showSettings(focusSelector){
     const b=document.createElement('button'),[h,s,l]=Energy.palettes[key];
     const selected=key===state.color;
     b.type='button';b.className='swatch';b.dataset.color=key;b.setAttribute('aria-pressed',selected);
-    b.innerHTML='<span class="chip" aria-hidden="true"></span><span>'+t(key)+'</span>';
+    b.innerHTML='<span class="chip" aria-hidden="true"></span><span>'+th(key)+'</span>';
     const chip=b.firstChild;
     chip.style.background='linear-gradient(140deg,hsl('+h+' '+s+'% '+Math.min(98,l+14)+'%),hsl('+h+' '+s+'% '+Math.max(2,l-10)+'%))';
     chip.textContent=selected?'✓':'';
     b.onclick=()=>{state.color=key;save();render();showSettings('[data-color="'+key+'"]');};
     $('.palette').append(b);
   }
-  $('#settings-done').onclick=finish;
+  $('#settings-done').onclick=()=>{saveName();finish();};
   if(focusSelector)content.querySelector(focusSelector)?.focus({preventScroll:true});
 }
 $('#minus').onclick=()=>change(-1);$('#plus').onclick=()=>change(1);
 $('#orb').onclick=$('#calc-hint').onclick=showCalculator;
 $('#total').onclick=showTotal;$('#reset').onclick=showReset;
 $('#settings').onclick=()=>showSettings();$('#add').onclick=()=>showAction(null);
-actionsToggle.onclick=()=>{
-  if(drawer.open)return;
-  drawer.showModal();
-  actionsToggle.setAttribute('aria-expanded','true');
-};
-function closeDrawer(){
-  if(!drawer.open||drawer.classList.contains('closing'))return;
-  drawer.classList.add('closing');
-  const animations=drawer.getAnimations();
-  Promise.allSettled(animations.map(animation=>animation.finished)).then(()=>{
-    drawer.close();
-    drawer.classList.remove('closing');
-    actionsToggle.setAttribute('aria-expanded','false');
-    actionsToggle.focus({preventScroll:true});
-  });
-}
-$('#drawer-close').onclick=closeDrawer;
-drawer.addEventListener('cancel',e=>{e.preventDefault();closeDrawer();});
-drawer.addEventListener('click',e=>{
-  if(e.target!==drawer)return;
-  const bounds=drawer.getBoundingClientRect();
-  if(e.clientX<bounds.left||e.clientX>=bounds.right||e.clientY<bounds.top||e.clientY>=bounds.bottom)closeDrawer();
-});
 $('#actions-list').onclick=e=>{
-  if(!drawer.open||drawer.classList.contains('closing'))return;
   const row=e.target.closest('.action-row');if(!row)return;
   const a=state.actions.find(item=>item.id===row.dataset.id);if(!a)return;
-  if(e.target.closest('.run-action')){
-    closeDrawer();
-    change(a.delta,a.target,displayName(a));
-  }
+  if(e.target.closest('.run-action'))change(a.delta,a.target,displayName(a));
   else if(e.target.closest('.edit-action'))showAction(a);
 };
 window.addEventListener('storage',e=>{
@@ -250,5 +237,10 @@ window.addEventListener('storage',e=>{
 });
 renderIcons(document);render();save();
 if('serviceWorker' in navigator && ['https:','http:'].includes(location.protocol)){
-  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+  const wasControlled=!!navigator.serviceWorker.controller;
+  let refreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(wasControlled&&!refreshing){refreshing=true;location.reload();}
+  });
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(()=>{}));
 }
