@@ -1,7 +1,8 @@
 /* Version the shell per project path. GitHub Pages projects may share an origin. */
+importScripts('./version.js');
 const prefix='eter-shell:'+self.registration.scope+':';
-const cacheName=prefix+'1.6.0';
-const files=['./index.html','./styles.css','./app.js','./energy.js','./sphere.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
+const cacheName=prefix+ETER_VERSION;
+const files=['./index.html','./styles.css','./version.js','./app.js','./energy.js','./sphere.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
 const urls=new Set(files.map(file=>new URL(file,self.registration.scope).href));
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(cacheName).then(cache=>cache.addAll(files.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting()));
