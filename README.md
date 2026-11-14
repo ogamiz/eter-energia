@@ -44,3 +44,7 @@ Puedes abrir `index.html` en el ordenador. Para probar también el modo sin cone
 
 - En **Ajustes → Eliminar reserva**, confirma la eliminación de esa reserva con sus valores, acciones e historial. Cancelar conserva los datos. Al eliminar la reserva activa se selecciona la siguiente o, si no hay otra después, la anterior. Si eliminas todas, puedes crear una nueva desde la pantalla vacía.
 - Arrastra el asa de puntos de una pestaña para cambiar su posición. También puedes usar **Alt + flecha izquierda/derecha** sobre una pestaña enfocada; **Alt + Inicio/Fin** la lleva al principio/final. El arrastre desplaza la barra al llegar a los bordes y Escape cancela el gesto. El orden queda guardado y la reserva seleccionada no cambia.
+
+## Acciones sobre ambos valores
+
+En el editor de una acción, **Aplicar a → Ambos** cambia la energía actual y el total en la misma cantidad. Por ejemplo, −6 pasa de 72/100 a 66/94; +8 con una reserva llena de 100/100 la deja en 108/108. Cada valor respeta sus límites de 0 a 999999. La acción queda como un solo paso del historial, con los dos cambios visibles, y Deshacer restaura ambos valores exactos. Las opciones de solo actual y solo total mantienen su comportamiento anterior.

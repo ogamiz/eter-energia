@@ -17,6 +17,8 @@ const Energy = (() => {
     ]};
   }
   const whole=n=>Number.isSafeInteger(n)&&n>=0&&n<=limit;
+  const bounded=n=>Math.min(limit,Math.max(0,n));
+  const pair=value=>value&&whole(value.current)&&whole(value.total);
   const normalizeName=name=>typeof name==='string' ? name.trim().replace(/\s+/g,' ').slice(0,24) || 'Energía' : 'Energía';
   function restore(raw) {
     const state=defaults();
@@ -29,7 +31,7 @@ const Energy = (() => {
     if(Array.isArray(raw.actions)){
       const seen=new Set();
       state.actions=raw.actions.filter(a=>{
-        if(!a || typeof a.id!=='string'||seen.has(a.id)||!['current','total'].includes(a.target)
+        if(!a || typeof a.id!=='string'||seen.has(a.id)||!['current','total','both'].includes(a.target)
           ||!Number.isSafeInteger(a.delta)||a.delta===0||Math.abs(a.delta)>limit||typeof a.name!=='string'
           ||(!a.name.trim()&&!['maintenance','recovery'].includes(a.preset)))return false;
         seen.add(a.id);return true;
@@ -40,12 +42,20 @@ const Energy = (() => {
       const values={current:state.current,total:state.total},valid=[];
       for(let i=raw.history.length-1;i>=0;i--){
         const entry=raw.history[i];
-        if(!entry||!['current','total'].includes(entry.target)||!whole(entry.before)||!whole(entry.after)
-          ||entry.before===entry.after||entry.after!==values[entry.target]
+        if(!entry||!['current','total','both'].includes(entry.target)
           ||!['step','calculator','total','action'].includes(entry.kind)
           ||typeof entry.label!=='string'||!Number.isSafeInteger(entry.at)||entry.at<0||entry.at>8640000000000000)break;
-        valid.unshift({...entry,label:entry.label.slice(0,100)});
-        values[entry.target]=entry.before;
+        if(entry.target==='both'){
+          if(!pair(entry.before)||!pair(entry.after)
+            ||(entry.before.current===entry.after.current&&entry.before.total===entry.after.total)
+            ||entry.after.current!==values.current||entry.after.total!==values.total)break;
+          valid.unshift({...entry,before:{current:entry.before.current,total:entry.before.total},after:{current:entry.after.current,total:entry.after.total},label:entry.label.slice(0,100)});
+          values.current=entry.before.current;values.total=entry.before.total;
+        }else{
+          if(!whole(entry.before)||!whole(entry.after)||entry.before===entry.after||entry.after!==values[entry.target])break;
+          valid.unshift({...entry,label:entry.label.slice(0,100)});
+          values[entry.target]=entry.before;
+        }
       }
       state.history=valid;
     }
@@ -58,11 +68,20 @@ const Energy = (() => {
     return terms.reduce((sum,n)=>sum+n,0);
   }
   function result(state,delta,target='current'){
-    if(target==='total')return Math.min(limit,Math.max(0,state.total+delta));
+    // Both values change together, even when the reserve is full or over capacity.
+    if(target==='both')return {current:bounded(state.current+delta),total:bounded(state.total+delta)};
+    if(target==='total')return bounded(state.total+delta);
     // Lowering capacity can create an overfull reserve. Spending uses its real value.
     return Math.max(0,Math.min(Math.max(state.current,state.total),state.current+delta));
   }
   function record(state,next,target='current',kind='step',label=''){
+    if(target==='both'){
+      const before={current:state.current,total:state.total};
+      if(!pair(next)||(before.current===next.current&&before.total===next.total))return false;
+      const after={current:next.current,total:next.total};
+      state.history.push({target,before,after,kind,label,at:Date.now()});
+      Object.assign(state,after);return true;
+    }
     const before=state[target];
     if(before===next)return false;
     state.history.push({target,before,after:next,kind,label,at:Date.now()});
@@ -71,6 +90,10 @@ const Energy = (() => {
   }
   function undo(state){
     const entry=state.history.at(-1);
+    if(entry?.target==='both'){
+      if(state.current!==entry.after.current||state.total!==entry.after.total)return null;
+      Object.assign(state,entry.before);state.history.pop();return entry;
+    }
     if(!entry||state[entry.target]!==entry.after)return null;
     state[entry.target]=entry.before;
     state.history.pop();
