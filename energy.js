@@ -2,6 +2,8 @@
 const Energy = (() => {
   const limit = 999999;
   const key = 'eter:energia:v1:' + (typeof location === 'undefined' ? '/' : location.pathname.replace(/(?:index\.html)?$/, '').replace(/\/$/,''));
+  // Keep the legacy record untouched so an old cached page cannot overwrite multiple reserves.
+  const workspaceKey=key.replace('eter:energia:v1:','eter:energia:v2:');
   const palettes = {
     blue:[208,94,54,'#87c9ff'], red:[355,77,47,'#ff999e'], yellow:[52,92,53,'#f6df72'],
     green:[148,69,40,'#80d8ab'], purple:[266,67,61,'#c6a5fb'], black:[225,11,10,'#acb0bd'],
@@ -75,6 +77,35 @@ const Energy = (() => {
     return entry;
   }
   function reset(state){state.current=state.total;state.history=[];}
-  return {record,undo,reset,limit,key,palettes,defaults,restore,evaluate,result,whole,normalizeName};
+  function makeReserve(raw,id){
+    const {version,lang,...reserve}=restore({...raw,version:1});
+    return {id,...reserve};
+  }
+  function restoreWorkspace(raw){
+    const lang=['es','en'].includes(raw?.lang)?raw.lang:'es';
+    let reserves=[];
+    if(raw?.version===2&&Array.isArray(raw.reserves)){
+      const seen=new Set();
+      for(const reserve of raw.reserves){
+        if(!reserve||typeof reserve.id!=='string'||!/^[-a-zA-Z0-9_]{1,100}$/.test(reserve.id)||seen.has(reserve.id))continue;
+        seen.add(reserve.id);reserves.push(makeReserve(reserve,reserve.id));
+      }
+    }else if(raw?.version===1){
+      reserves=[makeReserve(raw,'initial')];
+    }
+    if(!reserves.length)reserves=[makeReserve(null,'initial')];
+    const activeId=reserves.some(reserve=>reserve.id===raw?.activeId)?raw.activeId:reserves[0].id;
+    return {version:2,lang,activeId,reserves};
+  }
+  function activeReserve(workspace){return workspace.reserves.find(reserve=>reserve.id===workspace.activeId)||workspace.reserves[0];}
+  function addReserve(workspace,name='Energía',color='blue'){
+    let id;
+    do{id=globalThis.crypto?.randomUUID?.()||'reserve-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);}
+    while(workspace.reserves.some(reserve=>reserve.id===id));
+    const reserve=makeReserve({energyName:name,color},id);
+    workspace.reserves.push(reserve);workspace.activeId=id;
+    return reserve;
+  }
+  return {workspaceKey,restoreWorkspace,activeReserve,addReserve,record,undo,reset,limit,key,palettes,defaults,restore,evaluate,result,whole,normalizeName};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Energy;
