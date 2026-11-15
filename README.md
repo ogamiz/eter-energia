@@ -1,6 +1,6 @@
 # Éter · Gestor de energía
 
-**Versión actual: 1.6.1** · [Historial de versiones](CHANGELOG.md)
+**Versión actual: 1.7.0** · [Historial de versiones](CHANGELOG.md)
 
 Web: https://ogamiz.github.io/eter-energia/
 
@@ -41,6 +41,7 @@ Puedes abrir `index.html` en el ordenador. Para probar también el modo sin cone
 - Cada reserva conserva su energía actual, total, nombre, color, acciones (y su orden) e historial de forma independiente. Reiniciar o deshacer afecta solo a la reserva seleccionada. El idioma es común a toda la aplicación.
 - La actualización conserva la reserva de la versión anterior como primera pestaña. Las reservas se guardan en un registro nuevo del navegador, conservando intacto el registro anterior.
 - Para cambiar de pestaña con teclado, usa las flechas izquierda/derecha o Inicio/Fin. La última reserva seleccionada se conserva al recargar.
+- Desliza horizontalmente sobre la tarjeta de energía, incluida la esfera, para cambiar de reserva: hacia la izquierda avanza y hacia la derecha vuelve a la anterior, siguiendo el orden de las pestañas. En los extremos se detiene. El gesto requiere al menos 60 píxeles y una dirección claramente horizontal. Tocar sigue abriendo la calculadora; arrastrar no activa los botones. La lista de acciones mantiene su desplazamiento y arrastre propios. Con una sola reserva o una ventana modal abierta, el cambio por gesto está desactivado.
 
 ## Eliminar y reordenar pestañas
 

@@ -2,6 +2,12 @@
 
 Las versiones hasta la 1.6.0 se han reconstruido a partir del chat y de los identificadores internos de caché conservados en cada commit publicado. Sus números ya existían en el código, aunque todavía no se mostraban en la interfaz ni se documentaban como versiones del proyecto. Los saltos intermedios corresponden a ajustes realizados antes de cada publicación; no se presentan como publicaciones independientes.
 
+## 1.7.0 · 15 de noviembre de 2026
+
+- Gesto horizontal sobre la tarjeta de energía para cambiar de reserva en el orden de las pestañas: izquierda a la siguiente y derecha a la anterior, sin saltar entre extremos.
+- Los toques siguen abriendo la calculadora y los gestos no activan los botones de la tarjeta. Los movimientos verticales, los gestos cancelados y los de varios dedos no cambian de reserva.
+- Ayuda de swipe visible con varias reservas, en español e inglés. El gesto se desactiva mientras hay una ventana modal abierta o un arrastre en curso.
+
 ## 1.6.1 · 14 de noviembre de 2026
 
 - Versión visible en la parte inferior de Ajustes, en español e inglés.

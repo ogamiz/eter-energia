@@ -1,12 +1,12 @@
 'use strict';
 const messages = {
  es:{
-  version:'Versión',
+  version:'Versión', swipeHelp:'Desliza para cambiar de reserva',
   deleteReserve:'Eliminar reserva', deleteReservePrompt:'Se eliminarán los valores, las acciones y el historial de esta reserva.', reserveDeleted:'Reserva eliminada', noReserves:'No hay reservas', emptyReservesHelp:'Crea una reserva para empezar.', tabHelp:'Arrastra el asa para reordenar. Con teclado, usa Alt y las flechas izquierda o derecha.', reserves:'Reservas de energía', addReserve:'Añadir reserva', newReserve:'Nueva reserva', createReserve:'Crear reserva', reserveNameExample:'Ej. Maná, Ki, Vigor', reserveColor:'Color de la reserva', languageHelp:'El idioma se aplica a todas las reservas.', history:'Historial', undo:'Deshacer último cambio', historyEmpty:'Aún no hay cambios.', historyHelp:'Solo puedes deshacer el cambio más reciente.', stepChange:'Ajuste de un punto', totalChange:'Cambio del total', undone:'Cambio deshecho', reorder:'Reordenar', reorderHelp:'Arrastra el asa o usa las flechas arriba y abajo.', reordered:'Orden guardado', position:'Posición', defaultEnergy:'Energía', energyName:'Nombre de la energía', energyNameHelp:'Se usa en la reserva, el total y las acciones. Vacío restaura Energía.', tag:'Gestor de {energyLower}', settings:'Ajustes', reserve:'Reserva de {energyLower}', total:'{energy} total', current:'{energy} actual', addOne:'Añadir un punto', subtractOne:'Restar un punto',
   tap:'Toca la esfera para ajustar', available:'disponible', reset:'Reiniciar', actions:'Acciones rápidas', add:'Añadir', local:'Guardado en este dispositivo', offlineSave:'El navegador no permite guardar los cambios', close:'Cerrar', apply:'Aplicar', edit:'Editar', cancel:'Cancelar', ok:'Aceptar', save:'Guardar', remove:'Eliminar', done:'Listo', maintenance:'Mantenimiento', recovery:'Recuperación', empty:'Añade tu primera acción rápida.', calculator:'Ajustar {energyLower}', result:'{energy} resultante', clear:'Limpiar', backspace:'Borrar última cifra', expr:'Operación', example:'Ejemplo: −15 + 8', maxTitle:'Cambiar {energyLower} total', maxHelp:'La reserva actual conserva su valor.', resetTitle:'Reiniciar {energyLower}', resetHelp:'Recuperar la reserva hasta su valor total y borrar el historial.', change:'{energy} actual', newAction:'Nueva acción', editAction:'Editar acción', name:'Descripción', value:'Variación', target:'Aplicar a', both:'Ambos', spend:'Gastar', gain:'Añadir', magnitude:'Puntos', addName:'Ej. Mantenimiento', language:'Idioma', color:'Color de {energyLower}', blue:'Azul', red:'Rojo', yellow:'Amarillo', green:'Verde', purple:'Lila', black:'Negro', white:'Blanco', gray:'Gris', pink:'Rosa', orange:'Naranja', gold:'Dorado', silver:'Plateado', edited:'Cambios guardados', invalidExpr:'Completa la operación', calcOpen:'Abrir ajuste', onTotal:'Sobre el total', deleted:'Acción eliminada', deleteAction:'Eliminar acción', deletePrompt:'¿Eliminar esta acción rápida?', reachedMax:'Reserva llena', reachedZero:'Reserva vacía', over:'Por encima del total', zeroCapacity:'Sin capacidad', invalid:'Introduce un número entero válido.', unchanged:'Sin cambios', resetDone:'Reserva reiniciada', applied:'aplicada', activeColor:'Color seleccionado'
  },
  en:{
-  version:'Version',
+  version:'Version', swipeHelp:'Swipe to switch reserves',
   deleteReserve:'Delete reserve', deleteReservePrompt:'This will delete the values, actions and history of this reserve.', reserveDeleted:'Reserve deleted', noReserves:'No reserves', emptyReservesHelp:'Create a reserve to get started.', tabHelp:'Drag the handle to reorder. On a keyboard, use Alt and the left or right arrow keys.', reserves:'Energy reserves', addReserve:'Add reserve', newReserve:'New reserve', createReserve:'Create reserve', reserveNameExample:'E.g. Mana, Ki, Stamina', reserveColor:'Reserve color', languageHelp:'The language applies to all reserves.', history:'History', undo:'Undo latest change', historyEmpty:'No changes yet.', historyHelp:'Only the latest change can be undone.', stepChange:'One-point adjustment', totalChange:'Total changed', undone:'Change undone', reorder:'Reorder', reorderHelp:'Drag the handle or use the up and down arrow keys.', reordered:'Order saved', position:'Position', defaultEnergy:'Energy', energyName:'Energy name', energyNameHelp:'Used for the reserve, total and actions. Leave blank to restore Energy.', tag:'{energy} tracker', settings:'Settings', reserve:'{energy} reserve', total:'Total {energyLower}', current:'Current {energyLower}', addOne:'Add one point', subtractOne:'Subtract one point',
   tap:'Tap the sphere to adjust', available:'available', reset:'Reset', actions:'Quick actions', add:'Add', local:'Saved on this device', offlineSave:'This browser cannot save changes', close:'Close', apply:'Apply', edit:'Edit', cancel:'Cancel', ok:'Confirm', save:'Save', remove:'Delete', done:'Done', maintenance:'Upkeep', recovery:'Recovery', empty:'Add your first quick action.', calculator:'Adjust {energyLower}', result:'Resulting {energyLower}', clear:'Clear', backspace:'Delete last digit', expr:'Operation', example:'Example: −15 + 8', maxTitle:'Change total {energyLower}', maxHelp:'The current reserve keeps its value.', resetTitle:'Reset {energyLower}', resetHelp:'Refill the reserve to its total capacity and clear history.', change:'Current {energyLower}', newAction:'New action', editAction:'Edit action', name:'Description', value:'Adjustment', target:'Apply to', both:'Both', spend:'Spend', gain:'Add', magnitude:'Points', addName:'E.g. Upkeep', language:'Language', color:'{energy} color', blue:'Blue', red:'Red', yellow:'Yellow', green:'Green', purple:'Lilac', black:'Black', white:'White', gray:'Gray', pink:'Pink', orange:'Orange', gold:'Gold', silver:'Silver', edited:'Changes saved', invalidExpr:'Complete the operation', calcOpen:'Open adjustment', onTotal:'Changes total', deleted:'Action deleted', deleteAction:'Delete action', deletePrompt:'Delete this quick action?', reachedMax:'Reserve full', reachedZero:'Reserve empty', over:'Above capacity', zeroCapacity:'Zero capacity', invalid:'Enter a valid whole number.', unchanged:'No change', resetDone:'Reserve reset', applied:'applied', activeColor:'Selected color'
  }
@@ -67,6 +67,7 @@ function render(){
   $('#settings').setAttribute('aria-label',t('settings'));
   $('#settings').disabled=!state;
   $('#reserve-panel').hidden=!state;$('#empty-reserves').hidden=!!state;
+  $('#swipe-help').hidden=!state||workspace.reserves.length<2;
   const [h,s,l,accent]=Energy.palettes[state?.color||'blue'];
   const css=document.documentElement.style;
   css.setProperty('--accent',accent);
@@ -311,6 +312,15 @@ function switchReserve(id){
   state=reserve;workspace.activeId=reserve.id;
   save();render();$('#actions-list').scrollTop=0;$('#notice').textContent='';focusReserveTab();
 }
+ReserveSwipe.connect($('.chamber'),{
+  getContext:()=>!dialog.open&&!actionDrag&&!tabDrag&&workspace.reserves.length>1?state?.id:null,
+  onSwipe:direction=>{
+    const index=workspace.reserves.findIndex(reserve=>reserve.id===state?.id),next=index+direction;
+    if(index<0||next<0||next>=workspace.reserves.length)return;
+    switchReserve(workspace.reserves[next].id);
+    notify(reserveLabel(state)+' · '+t('position')+' '+(next+1)+' / '+workspace.reserves.length);
+  }
+});
 function showNewReserve(){
   let color='blue';
   openDialog('new-reserve','newReserve','<form><label for="new-energy-name">'+th('energyName')+'</label><input id="new-energy-name" required maxlength="24" autocomplete="off" placeholder="'+th('reserveNameExample')+'"><span class="field-title" id="new-color-label">'+th('reserveColor')+'</span><div class="palette" role="group" aria-labelledby="new-color-label"></div>'+buttons('createReserve')+'</form>');

@@ -108,3 +108,5 @@ input,select{width:100%;min-height:45px;padding:9px 12px;color:var(--ink);backgr
 .delete-confirm{background:#ffd0d3;color:#3c1017}
 #delete-reserve{gap:6px;padding:0 7px;font-size:12px;text-align:left}
 .settings-version{margin:20px 0 0;padding-top:14px;border-top:1px solid var(--edge);color:var(--muted);font-size:12px;line-height:1.5;text-align:center}
+.chamber{touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+.swipe-hint{margin:0 0 6px;color:var(--muted);font-size:11px;line-height:1.4}
